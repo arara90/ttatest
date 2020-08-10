@@ -12,7 +12,7 @@ function IconLink(props) {
     // <Link {...props}>
     //   <Image icon={icon}></Image>
     // </Link>
-    <Image icon={icon} />
+    <Image {...props}/>
   );
 }
 

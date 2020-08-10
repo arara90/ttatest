@@ -7,15 +7,23 @@ import GlobalStyle from "./components/GlobalStyle";
 import { dark, light } from "./components/Theme";
 
 //pages
+import Main from "./components/Pages/Main";
 import Test from "./components/Pages/Test";
+import Result from "./components/Pages/Result";
+
 
 const Wrapper = styled.div`
-  border: solid 1px black;
   min-height: 100vh;
+  max-width: 768px;
 
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  margin: auto;
+
+  // @media screen and (min-width: 768px) {
+  //   border: solid 1px ${({ theme: { colors } }) => colors.BLUE}
+  // };
 `;
 
 // @media screen and (max-width: 640px) {
@@ -31,7 +39,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Wrapper>
-          <Test />
+          {/* <Main /> */}
+          {/* <Test /> */}
+          <Result />
         </Wrapper>
       </ThemeProvider>
     </Fragment>

@@ -37,9 +37,14 @@ const GlobalStyle = createGlobalStyle`
         display: block;
     }
 
-    body, html{
+    html {
+        height: 100vh;
+        background-color: white;
+    }
+    body{
         line-height: 1;
         background-color: ${({ theme: { colors } }) => colors.BLUE};
+
         height: 100vh;
     }
 

@@ -1,47 +1,69 @@
 import React from "react";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
+import PropTypes from "prop-types";
 
 import IconLink from "../Molecule/IconLink";
+import Image from "../Atom/Image";
+import { Link } from "react-router-dom";
 
 const Wrap = styled.div`
+  height: 100%;
+  width: 100%;
   display: flex;
-  justify-content: center;
   background-color: ${({ theme: { colors } }) => colors.DARKBLUE};
 `;
 
-//   @media screen and (max-width: 640px) {
-//     padding: 0.5rem;
-//   }
-
-const InnerWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-
+const buttonCss = css`
+  width: 40px;
   height: 40px;
-
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-`;
+  justify-content: center;
+  background-color: transparent;
+`
+const StyledLink = styled.a`
+  ${buttonCss}
+`
+const Button = styled.button`
+  ${buttonCss}
+`
+const HeaderTitle = styled.div`
+  flex: 1;
+  margin: auto;
 
-//  max-width: ${size("maxWidth")};
-// > :not(:first-child) {
-//     margin-left: 1rem;
-//   }
+  color: white;
+  font-weight: bold;
+
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+
+`;
 
 const Header = (props) => {
   return (
-    <Wrap {...props}>
-      <InnerWrapper>
+    <Wrap {...props}> 
+      <StyledLink>
         <IconLink to="/" icon="home-white.png" width="20px" height="20px" />
-        {props.children}
-        <IconLink to="/" icon="moon.png" width="20px" height="20px" />
-      </InnerWrapper>
+      </StyledLink>
+      <HeaderTitle>{props.headerTitle}</HeaderTitle>
+      <Button>
+        <Image icon="moon.png" width="20px" height="20px"/>
+      </Button>
     </Wrap>
   );
 };
 
 export default Header;
+
+
+
+Header.propTypes = {
+  headerTitle: PropTypes.string,
+};
+
+Header.defaultProps = {
+  headerTitle: "TTA TESTER",
+};

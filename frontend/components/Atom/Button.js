@@ -18,11 +18,16 @@ const Btn = styled.button`
 
   border-radius: 8px;
   background-color: #ffffff;
-  padding: 10px 20px 10px 20px;
   line-height: 24px;
 
   color: #5c5c5c;
   background-color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 0 8px 0 rgba(95, 95, 95, 0.5);
 
   &.selected {
     color: #ffffff;
