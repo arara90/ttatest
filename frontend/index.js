@@ -1,20 +1,26 @@
 import React, { Fragment, useState } from "react";
 import { render } from "react-dom";
-import Welcome from "./src/Pages/Welcome";
-
-import ActionBar from "./src/Molecule/ActionBar";
-import GlobalStyle from "./src/GlobalStyle";
 import styled, { ThemeProvider } from "styled-components";
-import { dark, light } from "./src/Theme";
 
-const Wrap = styled.div`
-  width: 375px;
-  height: 667px;
+//style
+import GlobalStyle from "./components/GlobalStyle";
+import { dark, light } from "./components/Theme";
+
+//pages
+import Test from "./components/Pages/Test";
+
+const Wrapper = styled.div`
+  border: solid 1px black;
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme: { colors } }) => colors.BLUE};
+  box-sizing: border-box;
 `;
+
+// @media screen and (max-width: 640px) {
+//   padding-top: 3.25rem;
+// }
 
 function App() {
   const [darkmode, setDarkmode] = useState(false);
@@ -22,13 +28,11 @@ function App() {
 
   return (
     <Fragment>
-      <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Wrap>
-          <ActionBar themeClickEvent={() => setDarkmode(!darkmode)}></ActionBar>
-          {darkmode}
-          <Welcome></Welcome>
-        </Wrap>
+        <GlobalStyle />
+        <Wrapper>
+          <Test />
+        </Wrapper>
       </ThemeProvider>
     </Fragment>
   );
