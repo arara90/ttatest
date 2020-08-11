@@ -2,7 +2,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 module.exports = {
-    entry: { index: ['./frontend/index.js'] },
+    entry: { index: ['babel-polyfill', './frontend/index.js'] },
     output: {
         path: path.join(__dirname, './dist'),
         publicPath: '/',

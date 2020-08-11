@@ -11,7 +11,7 @@ import { dark, light } from "./components/Theme";
 import Main from "./components/Pages/Main";
 import Test from "./components/Pages/Test";
 import Result from "./components/Pages/Result";
-
+import Upload from "./components/Pages/Upload";
 
 const Wrapper = styled.div`
   min-width : 280px; //galaxy fold
@@ -42,7 +42,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Wrapper>
-          <Route exact path="/" component={Main} /> 
+          <Route exact path="/" component={Upload} /> 
           <Route path="test/" component={Test} /> 
           <Route path="/result" component={Result} /> 
         </Wrapper>
