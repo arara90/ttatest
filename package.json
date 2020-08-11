@@ -13,10 +13,13 @@
   "author": "ara",
   "license": "ISC",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "comma-separated-values": "^3.6.4",
     "html-webpack-plugin": "^4.3.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-file-reader": "^1.1.4",
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.1.1",
     "webpack": "^4.44.1",
