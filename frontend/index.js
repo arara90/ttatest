@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { Route, BrowserRouter  } from "react-router-dom"
 import { render } from "react-dom";
 import styled, { ThemeProvider } from "styled-components";
 
@@ -13,13 +14,15 @@ import Result from "./components/Pages/Result";
 
 
 const Wrapper = styled.div`
-  min-height: 100vh;
+  min-width : 280px; //galaxy fold
   max-width: 768px;
 
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   margin: auto;
+
+  // border: solid 1px red;
 
   // @media screen and (min-width: 768px) {
   //   border: solid 1px ${({ theme: { colors } }) => colors.BLUE}
@@ -35,16 +38,16 @@ function App() {
   const theme = darkmode ? dark : light;
 
   return (
-    <Fragment>
+    <BrowserRouter>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Wrapper>
-          {/* <Main /> */}
-          {/* <Test /> */}
-          <Result />
+          <Route exact path="/" component={Main} /> 
+          <Route path="test/" component={Test} /> 
+          <Route path="/result" component={Result} /> 
         </Wrapper>
       </ThemeProvider>
-    </Fragment>
+    </BrowserRouter>
   );
 }
 

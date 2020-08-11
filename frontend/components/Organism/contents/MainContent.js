@@ -13,7 +13,6 @@ const Section = styled.section`
 `;
 
 const Title = styled.div`
-
   font-size: 24px;
   font-weight: bold;
   font-stretch: normal;
@@ -23,15 +22,15 @@ const Title = styled.div`
   text-align: center;
   color: #ffffff;
 
-  padding-top: 50px;
+  padding-top: 2.5em;
+  padding-bottom: 2em;
 
 `;
 
 const SubTitle = styled.div`
-
   font-size: 18px;
   font-weight: 500;
-  
+
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
@@ -39,22 +38,28 @@ const SubTitle = styled.div`
   text-align: center;
   color: #ffffff;
 
-  
-  padding-top: 40px;
+  padding-bottom: 20px;
 `;
 
 const Ol = styled.ol`
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 `;
 
 const Li = styled.li`
+  display: box;
+  padding-bottom: 1em;
   list-style: none;
-  padding-bottom: 1rem;
   width: 100%;
+  flex: 1;
 `;
+
+const StyledButton = styled(Button)`
+  min-height: 40px;
+`
 
 function MainContent() {
     return (
@@ -63,20 +68,19 @@ function MainContent() {
         <Title>TTA 정보용어사전</Title>
         <SubTitle>문제를 선택해주세요</SubTitle>
       </Section>
-
       <Section className="">
         <Ol>
           <Li>
-            <Button className="content-selection">전체 랜덤</Button>
+            <StyledButton className="content-selection">전체 랜덤</StyledButton>
           </Li>
           <Li>
-            <Button>2020년도(상반기)</Button>
+            <StyledButton>2020년도(상반기)</StyledButton>
           </Li>
           <Li>
-            <Button>2019년도</Button>
+            <StyledButton>2019년도</StyledButton>
           </Li>
           <Li>
-            <Button>2018년도</Button>
+            <StyledButton>2018년도</StyledButton>
           </Li>
         </Ol>
       </Section>
