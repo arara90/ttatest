@@ -37,8 +37,17 @@ const GlobalStyle = createGlobalStyle`
         display: block;
     }
 
-    body {
+    html {
+        height: 100vh;
+        background-color: ${({ theme: { colors } }) => colors.BLUE};
+    }
+    body{
+        min-height: 520px;
+        min-width : 280px;
         line-height: 1;
+        background-color: ${({ theme: { colors } }) => colors.BLUE};
+
+        height: 100vh;
     }
 
     ol, ul {
@@ -62,9 +71,6 @@ const GlobalStyle = createGlobalStyle`
 
 
 
-html {
-    background-color: ${({ theme: { colors } }) => colors.BLUE};
-}
 
 
 button {

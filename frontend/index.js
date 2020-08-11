@@ -1,36 +1,53 @@
 import React, { Fragment, useState } from "react";
+import { Route, BrowserRouter  } from "react-router-dom"
 import { render } from "react-dom";
-import Welcome from "./src/Pages/Welcome";
-
-import ActionBar from "./src/Molecule/ActionBar";
-import GlobalStyle from "./src/GlobalStyle";
 import styled, { ThemeProvider } from "styled-components";
-import { dark, light } from "./src/Theme";
 
-const Wrap = styled.div`
-  width: 375px;
-  height: 667px;
+//style
+import GlobalStyle from "./components/GlobalStyle";
+import { dark, light } from "./components/Theme";
+
+//pages
+import Main from "./components/Pages/Main";
+import Test from "./components/Pages/Test";
+import Result from "./components/Pages/Result";
+
+
+const Wrapper = styled.div`
+  min-width : 280px; //galaxy fold
+  max-width: 768px;
 
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme: { colors } }) => colors.BLUE};
+  box-sizing: border-box;
+  margin: auto;
+
+  // border: solid 1px red;
+
+  // @media screen and (min-width: 768px) {
+  //   border: solid 1px ${({ theme: { colors } }) => colors.BLUE}
+  // };
 `;
+
+// @media screen and (max-width: 640px) {
+//   padding-top: 3.25rem;
+// }
 
 function App() {
   const [darkmode, setDarkmode] = useState(false);
   const theme = darkmode ? dark : light;
 
   return (
-    <Fragment>
-      <GlobalStyle />
+    <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <Wrap>
-          <ActionBar themeClickEvent={() => setDarkmode(!darkmode)}></ActionBar>
-          {darkmode}
-          <Welcome></Welcome>
-        </Wrap>
+        <GlobalStyle />
+        <Wrapper>
+          <Route exact path="/" component={Main} /> 
+          <Route path="test/" component={Test} /> 
+          <Route path="/result" component={Result} /> 
+        </Wrapper>
       </ThemeProvider>
-    </Fragment>
+    </BrowserRouter>
   );
 }
 

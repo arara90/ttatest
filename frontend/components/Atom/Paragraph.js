@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-//   font-size: ${(props) => props.theme.fontSize[props.fontSize]};
 const P = styled.p`
   font-size: ${({ theme: { fontSizes } }) => (props) => {
     fontSizes.get(props.fontSize);

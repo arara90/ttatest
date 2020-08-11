@@ -1,17 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../Atom/Button";
+import Button from "../../Atom/Button";
 
 const Wrap = styled.div`
   width: 100%;
-  height: 100%;
-
   display: flex;
   flex-direction: column;
 `;
 
 const Section = styled.section`
-  border: solid 1px red;
+  flex: 1;
 `;
 
 const Title = styled.div`
@@ -24,59 +22,70 @@ const Title = styled.div`
   text-align: center;
   color: #ffffff;
 
-  padding-bottom: 5vh;
+  padding-top: 2.5em;
+  padding-bottom: 2em;
+
 `;
 
 const SubTitle = styled.div`
   font-size: 18px;
   font-weight: 500;
+
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
   text-align: center;
   color: #ffffff;
+
+  padding-bottom: 20px;
 `;
 
 const Ol = styled.ol`
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 `;
 
 const Li = styled.li`
+  display: box;
+  padding-bottom: 1em;
   list-style: none;
-  padding-bottom: 15px;
-  width: 80%;
+  width: 100%;
+  flex: 1;
 `;
 
-function Welcome() {
-  return (
-    <Wrap>
-      <Section className="Title">
-        <Title>TTA 정보용어사전 문제집</Title>
-      </Section>
+const StyledButton = styled(Button)`
+  min-height: 40px;
+`
 
-      <Section className="">
+function MainContent() {
+    return (
+    <Wrap>
+      <Section className="content-title">
+        <Title>TTA 정보용어사전</Title>
         <SubTitle>문제를 선택해주세요</SubTitle>
+      </Section>
+      <Section className="">
         <Ol>
           <Li>
-            <Button className="selected">전체 랜덤</Button>
+            <StyledButton className="content-selection">전체 랜덤</StyledButton>
           </Li>
           <Li>
-            <Button>2020년도(상반기) 용어</Button>
+            <StyledButton>2020년도(상반기)</StyledButton>
           </Li>
           <Li>
-            <Button>2019년도 용어</Button>
+            <StyledButton>2019년도</StyledButton>
           </Li>
           <Li>
-            <Button>2018년도 용어</Button>
+            <StyledButton>2018년도</StyledButton>
           </Li>
         </Ol>
       </Section>
     </Wrap>
-  );
+    )
 }
 
-export default Welcome;
+export default MainContent
