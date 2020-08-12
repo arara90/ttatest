@@ -64,14 +64,16 @@ const Button = ({ type, ...props }) => {
 export default Button;
 
 Button.propTypes = {
+  height: PropTypes.string,
+  height: PropTypes.string,
   disabled: PropTypes.bool,
-  height: PropTypes.number,
   type: PropTypes.string,
   to: PropTypes.string,
   href: PropTypes.string,
 };
 
 Button.defaultProps = {
+  width :  "100%",
+  height: "100%",
   type: "button",
-  height: 40,
 };

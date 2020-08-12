@@ -1,6 +1,9 @@
 import React from "react";
+import { connect } from "react-redux";
+
 import styled from "styled-components";
 import Button from "../../Atom/Button";
+import { getTestData } from "../../../redux/actions/test";
 
 const Wrap = styled.div`
   width: 100%;
@@ -61,7 +64,88 @@ const StyledButton = styled(Button)`
   min-height: 40px;
 `;
 
-function MainContent() {
+
+const getQuestions = (dataLength, numberOfQuestions=10) => {
+  var i = 0; 
+  var questions = [];
+
+   //1.문제 담기
+  while(i<numberOfQuestions){
+    questions.push(Math.floor(Math.random()*dataLength));
+    if(questions.length==numberOfQuestions){
+      var resQ = new Set(questions);
+      if(resQ.size<numberOfQuestions){//중복제거
+        i=resQ.size;
+        questions = [...resQ];
+      }else break;
+    }else{
+      i++;
+    }
+  } //fin while
+    return questions;
+}
+
+const getOptions = (dataLength, questions=[], numberOfOptions=4) => {
+  var i = 0; 
+  var options = [];
+  var optionsItem = [];
+
+  function shuffle(arr){
+    const newArr = arr.slice();
+    for(let i = newArr.length -1 ; i > 0; i--){
+      const rand = Math.floor(Math.random()*(i+1));
+      [newArr[i], newArr[rand]] = [newArr[rand], newArr[i]]; 
+    }
+    return newArr
+  }
+
+  questions.forEach( answer => {
+    optionsItem=[];
+
+    for(var j=0; j<numberOfOptions; j++){
+      //option item 넣기
+      if(j==0) optionsItem.push(answer) //정답넣기
+      else{
+        optionsItem.push(Math.floor(Math.random()*dataLength));
+      }
+
+     if(optionsItem.length==numberOfOptions){
+      var res = new Set(optionsItem);
+      if(res.size<numberOfOptions){//중복제거
+        j=res.size-1;
+        optionsItem = [...res];
+        }
+      else{
+        //shuffle
+        optionsItem = shuffle(optionsItem);
+        options.push(optionsItem);
+        break;
+        } 
+      }
+    }
+  }); //end forEach
+  return options;
+}
+
+
+function MainContent(props) {
+  const {data, hasLoadedDatas, getTestData} = props;
+
+  const clickHandler = (option) =>{
+    console.log("clickHandler", option)
+    var questions = [];
+    var options = [];
+    const numberOfQuestions=10
+    const numberOfOptions=4
+
+    if(hasLoadedDatas){
+      questions = getQuestions(data[option].length, numberOfQuestions);
+      options = getOptions(data[option].length, questions,numberOfOptions);
+    }
+
+    getTestData(questions,options);
+  }
+  
   return (
     <Wrap>
       <Section className="content-title">
@@ -71,16 +155,16 @@ function MainContent() {
       <Section className="">
         <Ol>
           <Li>
-            <StyledButton className="content-selection">전체 랜덤</StyledButton>
+            <StyledButton className="content-selection" onClick={()=>clickHandler("2019")}>전체 랜덤</StyledButton>
           </Li>
           <Li>
-            <StyledButton>2020년도(상반기)</StyledButton>
+            <StyledButton onClick={()=>clickHandler("2019")}>2019년도</StyledButton>
           </Li>
           <Li>
-            <StyledButton>2019년도</StyledButton>
+            <StyledButton onClick={()=>clickHandler("2018")}>2018년도</StyledButton>
           </Li>
           <Li>
-            <StyledButton>2018년도</StyledButton>
+            <StyledButton onClick={()=>clickHandler("2017")}>2017년도</StyledButton>
           </Li>
         </Ol>
       </Section>
@@ -88,4 +172,10 @@ function MainContent() {
   );
 }
 
-export default MainContent;
+const mapStateToProps = (state) => ({
+  data: state.data,
+  hasLoadedDatas: state.status,
+});
+
+
+export default connect(mapStateToProps, {getTestData})(MainContent);

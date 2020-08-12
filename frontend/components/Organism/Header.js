@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -6,6 +6,9 @@ import { connect } from "react-redux";
 import IconLink from "../Molecule/IconLink";
 import Image from "../Atom/Image";
 import { Link } from "react-router-dom";
+
+// import { toggleDarkMode } from "../../redux/actions/status";
+import { TTAContext } from "../context";
 
 const Wrap = styled.div`
   height: 100%;
@@ -43,7 +46,10 @@ const HeaderTitle = styled.div`
 `;
 
 const Header = (props) => {
-  const { darkMode } = props;
+  // const { darkMode, toggleDarkMode } = props;
+  const { darkMode, toggleDarkMode } = useContext(TTAContext);
+  console.log(darkMode)
+
 
   return (
     <Wrap {...props}>
@@ -51,18 +57,19 @@ const Header = (props) => {
         <IconLink to="/" icon="home-white.png" width="20px" height="20px" />
       </StyledLink>
       <HeaderTitle>{props.headerTitle}</HeaderTitle>
-      <Button>
+      <Button onClick={toggleDarkMode}>
         <Image icon="moon.png" width="20px" height="20px" />
       </Button>
     </Wrap>
   );
 };
 
-const mapStateToProps = (state) => ({
-  darkMode: state.status.darkMode,
-});
+// const mapStateToProps = (state) => ({
+//   darkMode: state.status.darkMode,
+// });
 
-export default connect(mapStateToProps, {})(Header);
+// export default connect(mapStateToProps, {toggleDarkMode})(Header);
+export default Header;
 
 Header.propTypes = {
   headerTitle: PropTypes.string,

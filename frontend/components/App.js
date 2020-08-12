@@ -1,7 +1,11 @@
 //react
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Route, BrowserRouter } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
+
+import { TTAContextProvider } from "./context";
+// import { TTAContext } from "./context";
+
 
 //redux
 import { connect, Provider } from "react-redux";
@@ -40,6 +44,8 @@ function App() {
   //   const { darkMode } = props;
   //   const theme = darkMode ? dark : light;
 
+  // const {darkMode} = useContext(TTAContext);
+  // const theme = darkMode ? dark : light;
   useEffect(() => {
     store.dispatch(setDarkMode());
     store.dispatch(getDatas());
@@ -47,6 +53,7 @@ function App() {
 
   return (
     <Provider store={store}>
+      <TTAContextProvider>
       <BrowserRouter>
         <ThemeProvider theme={light}>
           <GlobalStyle />
@@ -57,6 +64,7 @@ function App() {
           </Wrapper>
         </ThemeProvider>
       </BrowserRouter>
+      </TTAContextProvider>
     </Provider>
   );
 }

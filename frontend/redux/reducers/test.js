@@ -1,4 +1,4 @@
-import { GET_TESTDATA, RECORD_SCORE } from "../actions/types";
+import { GET_TESTDATA, RECORD_ANSWER } from "../actions/types";
 
 const initialState = {
   testdata: [],
@@ -9,11 +9,12 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case GET_TESTDATA:
       return {
-        testdata: action.payload,
-        score: new Array(action.payload.length).fill(0),
+        questions: action.payload.questions,
+        options: action.payload.options,
+        answers: new Array(action.payload.questions.length).fill(null),
       };
 
-    case RECORD_SCORE:
+    case RECORD_ANSWER:
       return {
         ...state,
         score: (state.score[action.payload.num] = action.payload.isCorrect),
