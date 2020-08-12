@@ -1,8 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const Btn = styled.button`
+const styles = css`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
 
@@ -35,18 +36,42 @@ const Btn = styled.button`
   }
 `;
 
-function Button(props) {
-  return <Btn {...props}></Btn>;
-}
+const StyledLink = styled(({ disabled, height, theme, ...props }) => (
+  <Link {...props} />
+))`
+  ${styles}
+`;
+
+const Anchor = styled.a`
+  ${styles}
+`;
+
+const StyledButton = styled.button`
+  ${styles}
+`;
+
+const Button = ({ type, ...props }) => {
+  const { to, href } = props;
+  if (to) {
+    return <StyledLink {...props} />;
+  }
+  if (href) {
+    return <Anchor {...props} />;
+  }
+  return <StyledButton {...props} type={type} />;
+};
 
 export default Button;
 
 Button.propTypes = {
-  width: PropTypes.string,
-  height: PropTypes.string,
+  disabled: PropTypes.bool,
+  height: PropTypes.number,
+  type: PropTypes.string,
+  to: PropTypes.string,
+  href: PropTypes.string,
 };
 
 Button.defaultProps = {
-  width: "100%",
-  height: "100%",
+  type: "button",
+  height: 40,
 };

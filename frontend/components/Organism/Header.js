@@ -1,6 +1,7 @@
 import React from "react";
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 import IconLink from "../Molecule/IconLink";
 import Image from "../Atom/Image";
@@ -20,13 +21,13 @@ const buttonCss = css`
   align-items: center;
   justify-content: center;
   background-color: transparent;
-`
+`;
 const StyledLink = styled.a`
   ${buttonCss}
-`
+`;
 const Button = styled.button`
   ${buttonCss}
-`
+`;
 const HeaderTitle = styled.div`
   flex: 1;
   margin: auto;
@@ -39,26 +40,29 @@ const HeaderTitle = styled.div`
   line-height: normal;
   letter-spacing: normal;
   text-align: center;
-
 `;
 
 const Header = (props) => {
+  const { darkMode } = props;
+
   return (
-    <Wrap {...props}> 
+    <Wrap {...props}>
       <StyledLink>
         <IconLink to="/" icon="home-white.png" width="20px" height="20px" />
       </StyledLink>
       <HeaderTitle>{props.headerTitle}</HeaderTitle>
       <Button>
-        <Image icon="moon.png" width="20px" height="20px"/>
+        <Image icon="moon.png" width="20px" height="20px" />
       </Button>
     </Wrap>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  darkMode: state.status.darkMode,
+});
 
-
+export default connect(mapStateToProps, {})(Header);
 
 Header.propTypes = {
   headerTitle: PropTypes.string,
