@@ -24,7 +24,6 @@ const Title = styled.div`
 
   padding-top: 2.5em;
   padding-bottom: 2em;
-
 `;
 
 const SubTitle = styled.div`
@@ -58,11 +57,12 @@ const Li = styled.li`
 `;
 
 const StyledButton = styled(Button)`
+  width: 100%;
   min-height: 40px;
-`
+`;
 
 function MainContent() {
-    return (
+  return (
     <Wrap>
       <Section className="content-title">
         <Title>TTA 정보용어사전</Title>
@@ -85,7 +85,7 @@ function MainContent() {
         </Ol>
       </Section>
     </Wrap>
-    )
+  );
 }
 
-export default MainContent
+export default MainContent;
