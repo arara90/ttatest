@@ -14,7 +14,6 @@ const Header = styled.header`
 `;
 //  z-index: 999;
 
-
 const Content = styled.section`
   // border: solid 1px violet;
   width: 100%;
@@ -28,14 +27,7 @@ const Footer = styled.footer`
   height: 50px;
 `;
 
-const DefaultTemplate = ({
-  header,
-  hero,
-  sponsor,
-  children,
-  footer,
-  ...props
-}) => {
+const DefaultTemplate = ({ header, children, footer, ...props }) => {
   return (
     <Wrapper {...props} className="DT">
       <Header>{header}</Header>

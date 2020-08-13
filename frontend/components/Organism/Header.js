@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -25,7 +25,7 @@ const buttonCss = css`
   justify-content: center;
   background-color: transparent;
 `;
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   ${buttonCss}
 `;
 const Button = styled.button`
@@ -48,15 +48,16 @@ const HeaderTitle = styled.div`
 const Header = (props) => {
   // const { darkMode, toggleDarkMode } = props;
   const { darkMode, toggleDarkMode } = useContext(TTAContext);
-  console.log(darkMode)
-
+  console.log(darkMode);
 
   return (
     <Wrap {...props}>
-      <StyledLink>
-        <IconLink to="/" icon="home-white.png" width="20px" height="20px" />
+      <StyledLink to="/">
+        <Image icon="home-white.png" width="20px" height="20px" />
       </StyledLink>
+
       <HeaderTitle>{props.headerTitle}</HeaderTitle>
+
       <Button onClick={toggleDarkMode}>
         <Image icon="moon.png" width="20px" height="20px" />
       </Button>
@@ -64,11 +65,6 @@ const Header = (props) => {
   );
 };
 
-// const mapStateToProps = (state) => ({
-//   darkMode: state.status.darkMode,
-// });
-
-// export default connect(mapStateToProps, {toggleDarkMode})(Header);
 export default Header;
 
 Header.propTypes = {

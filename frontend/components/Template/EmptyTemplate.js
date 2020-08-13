@@ -4,38 +4,24 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   min-height: 100vh;
+  width: 100%;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // border: solid 1px black;
 `;
 
-const Header = styled.header`
-  width: 100%;
-`;
-//  z-index: 999;
-
-const Content = styled.section`
-  // border: solid 1px violet;
-  width: 100%;
-  flex: 1;
-  padding: 25px;
-  display: flex;
-`;
-
-//   max-width: ${size("maxWidth")};
-const Footer = styled.footer`
-  height: 50px;
-`;
-
-const MainTemplate = ({ header, children, ...props }) => {
+const EmptyTemplate = ({ children, ...props }) => {
   return (
     <Wrapper {...props} className="DT">
-      <Header>{header}</Header>
-      <Content>{children}</Content>
+      {children}
     </Wrapper>
   );
 };
 
-// MainTemplate.propTypes = {
+// ResultTemplate.propTypes = {
 //   header: PropTypes.node.isRequired,
 //   hero: PropTypes.node,
 //   sponsor: PropTypes.node,
@@ -43,7 +29,7 @@ const MainTemplate = ({ header, children, ...props }) => {
 //   children: PropTypes.any.isRequired,
 // };
 
-// MainTemplate.defaultProps = {
+// ResultTemplate.defaultProps = {
 //   // header: "header  ",
 //   // hero: "hero    ",
 //   // sponsor: "sponsor ",
@@ -51,4 +37,4 @@ const MainTemplate = ({ header, children, ...props }) => {
 //   // children: "children",
 // };
 
-export default MainTemplate;
+export default EmptyTemplate;

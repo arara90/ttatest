@@ -1,9 +1,8 @@
 import React from "react";
 
 export default () => {
-  let [darkMode, setDarkMode] = React.useState(false);
-  
-  let toggleDarkMode = () => {
+  const [darkMode, setDarkMode] = React.useState(false);
+  const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
 

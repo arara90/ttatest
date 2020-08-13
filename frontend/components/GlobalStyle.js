@@ -39,6 +39,8 @@ const GlobalStyle = createGlobalStyle`
 
     html {
         height: 100vh;
+        min-height: 520px;
+        min-width : 280px;
         background-color: ${({ theme: { colors } }) => colors.BLUE};
     }
     body{

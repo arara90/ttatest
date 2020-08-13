@@ -6,7 +6,6 @@ import styled, { ThemeProvider } from "styled-components";
 import { TTAContextProvider } from "./context";
 // import { TTAContext } from "./context";
 
-
 //redux
 import { connect, Provider } from "react-redux";
 import store from "../redux/store";
@@ -54,25 +53,19 @@ function App() {
   return (
     <Provider store={store}>
       <TTAContextProvider>
-      <BrowserRouter>
-        <ThemeProvider theme={light}>
-          <GlobalStyle />
-          <Wrapper>
-            <Route exact path="/" component={Main} />
-            <Route path="test/" component={Test} />
-            <Route path="/result" component={Result} />
-          </Wrapper>
-        </ThemeProvider>
-      </BrowserRouter>
+        <BrowserRouter>
+          <ThemeProvider theme={light}>
+            <GlobalStyle />
+            <Wrapper>
+              <Route exact path="/" component={Main} />
+              <Route path="/test" component={Test} />
+              <Route path="/result" component={Result} />
+            </Wrapper>
+          </ThemeProvider>
+        </BrowserRouter>
       </TTAContextProvider>
     </Provider>
   );
 }
 
 export default App;
-
-// const mapStateToProps = (state) => ({
-//   darkMode: state.darkMode,
-// });
-
-// export default connect(mapStateToProps, { getDatas })(App);

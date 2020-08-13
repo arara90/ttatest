@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import EmptyTemplate from "../Template/EmptyTemplate";
-import ResultContent from "../Organism/contents/ResultContent";
+import Image from "../Atom/Image";
 
 function Result() {
   return (
     <EmptyTemplate>
-      <ResultContent />
+      <Image width="50px" height="50px" icon="loading-spinner-white.gif" />
     </EmptyTemplate>
   );
 }

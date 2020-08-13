@@ -1,35 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+
 import styled from "styled-components";
 import Button from "../../Atom/Button";
+import Image from "../../Atom/Image";
 
 const Wrap = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  
 `;
 
 const Section = styled.section`
   flex: 1;
-
   display: flex;
 `;
 
 const Quiz = styled.div`
   flex: 1;
-  display: flex;
 `;
-
 
 const Card = styled.div`
   flex: 1;
+
+  overflow: scroll;
   width: 100%;
+  height: 100%;
   word-break: break-all;
-
-  margin-top: 10px;
-  margin-bottom: 15px;
-
-  padding: 15px;
 
   background-color: white;
   border-radius: 8px;
@@ -43,6 +40,7 @@ const Card = styled.div`
   letter-spacing: normal;
   text-align: center;
 
+  padding: 15px;
 `;
 
 const Ol = styled.ol`
@@ -55,43 +53,60 @@ const Ol = styled.ol`
 `;
 
 const Li = styled.li`
-
   flex: 1;
   list-style: none;
   padding-top: 15px;
   width: 100%;
 `;
 
-function Test() {
-    return (
+function Test(props) {
+  const { year, questions, options } = props.test;
+  const { userAnswers, currQuestion, recordAnswer, selectHandler } = props;
+
+  const datas = props.data[year];
+
+  const clickHandler = (option) => {
+    var newAnswers = userAnswers;
+    newAnswers[currQuestion] = option;
+    selectHandler(newAnswers);
+    console.log(newAnswers);
+  };
+
+  const renderOptions = () => {
+    var currOptions = options[currQuestion];
+
+    return currOptions.map((option) => {
+      return (
+        <Li key={option}>
+          <Button
+            className="content-selection"
+            onClick={(e) => clickHandler(option)}
+          >
+            {datas[option].title}
+          </Button>
+        </Li>
+      );
+    });
+  };
+  return (
     <Wrap>
-      <Section className="test-quiz">
+      <Section className="test-question" style={{ position: "relative" }}>
         <Quiz>
-          <Card>
-            <p> 문제1 </p>
-            <p style={{width: "100%"}}>ljkaaaaaaaaaaaaaaaaaaaaaaaaaaadffffffffffffff</p>
+          <Card style={{ position: "absolute" }}>
+            <p>{datas[questions[currQuestion]].content}</p>
           </Card>
         </Quiz>
       </Section>
 
-      <Section className="">
-        <Ol>
-          <Li>
-            <Button className="content-selection">전체 랜덤</Button>
-          </Li>
-          <Li>
-            <Button>2020년도(상반기)</Button>
-          </Li>
-          <Li>
-            <Button>2019년도</Button>
-          </Li>
-          <Li>
-            <Button>2018년도</Button>
-          </Li>
-        </Ol>
+      <Section className="test-options">
+        <Ol>{renderOptions()}</Ol>
       </Section>
     </Wrap>
-    )
+  );
 }
 
-export default Test
+const mapStateToProps = (state) => ({
+  data: state.data,
+});
+
+export default connect(mapStateToProps, {})(Test);
