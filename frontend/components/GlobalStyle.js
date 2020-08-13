@@ -75,10 +75,10 @@ const GlobalStyle = createGlobalStyle`
 
 
 
-button {
-    outline: none;
-    border: none;
-}
+    button {
+        outline: none;
+        border: none;
+    }
 
 
 

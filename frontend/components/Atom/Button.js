@@ -16,13 +16,12 @@ const styles = css`
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
+  text-decoration: none;
 
   border-radius: 8px;
-  background-color: #ffffff;
   line-height: 24px;
 
   color: #5c5c5c;
-  background-color: #ffffff;
 
   display: flex;
   justify-content: center;
@@ -30,10 +29,16 @@ const styles = css`
 
   box-shadow: 0 0 8px 0 rgba(95, 95, 95, 0.5);
 
-  &.selected {
-    color: #ffffff;
-    background-color: ${({ theme: { colors } }) => colors.BORA};
+  &:hover {
+    text-decoration: none;
   }
+
+  ${(props) => (props.isSelected ? `
+  background-color: ${props.theme.colors.BORA};
+  color :${props.theme.colors.WHITE}
+  `:`background-color: ${props.theme.colors.WHITE};
+  color :${props.theme.colors.FONT}`)
+  };
 `;
 
 const StyledLink = styled(({ disabled, height, theme, ...props }) => (
@@ -46,12 +51,17 @@ const Anchor = styled.a`
   ${styles}
 `;
 
+// ${(props) => (props.isSelected ? `
+// background-color: ${({ theme: { colors } }) => colors.BORA}
+// `:`background-color: ${({ theme: { colors } }) => colors.WHITE}`)
+// };
+
 const StyledButton = styled.button`
   ${styles}
 `;
 
-const Button = ({ type, ...props }) => {
-  const { to, href } = props;
+function Button({type, ...props}){
+  const { to, href, isSelected } = props;
   if (to) {
     return <StyledLink {...props} />;
   }
@@ -75,5 +85,4 @@ Button.propTypes = {
 Button.defaultProps = {
   width :  "100%",
   height: "100%",
-  type: "button",
 };

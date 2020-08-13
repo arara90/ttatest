@@ -48,8 +48,6 @@ const HeaderTitle = styled.div`
 const Header = (props) => {
   // const { darkMode, toggleDarkMode } = props;
   const { darkMode, toggleDarkMode } = useContext(TTAContext);
-  console.log(darkMode);
-
   return (
     <Wrap {...props}>
       <StyledLink to="/">

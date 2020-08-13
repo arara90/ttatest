@@ -12,10 +12,10 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case GET_TESTDATA:
       return {
+        ...state,
         year: action.payload.year,
         questions: action.payload.questions,
         options: action.payload.options,
-        answers: new Array(action.payload.questions.length).fill(null),
         isLoaded: true,
       };
 

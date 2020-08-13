@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Button from "../../Atom/Button";
 import Link from "../../Atom/Link";
 
+
 import { getTestData } from "../../../redux/actions/test";
 
 const Wrap = styled.div`
@@ -62,7 +63,6 @@ const Li = styled.li`
 `;
 
 const StyledButton = styled(Button)`
-  width: 100%;
   min-height: 40px;
 `;
 
@@ -93,7 +93,7 @@ const getOptions = (dataLength, questions = [], numberOfOptions = 4) => {
   var optionsItem = [];
 
   function shuffle(arr) {
-    const newArr = arr.slice();
+    const newArr = arr.slice(); //배열 복사
     for (let i = newArr.length - 1; i > 0; i--) {
       const rand = Math.floor(Math.random() * (i + 1));
       [newArr[i], newArr[rand]] = [newArr[rand], newArr[i]];
@@ -103,7 +103,6 @@ const getOptions = (dataLength, questions = [], numberOfOptions = 4) => {
 
   questions.forEach((answer) => {
     optionsItem = [];
-
     for (var j = 0; j < numberOfOptions; j++) {
       //option item 넣기
       if (j == 0) optionsItem.push(answer);
@@ -148,6 +147,39 @@ function MainContent(props) {
     getTestData(year, questions, options);
   };
 
+  const renderButtons = () => {
+    const buttons = Object.keys(data)
+    buttons.push("all");
+    return (
+      buttons.reverse().map((button)=>{
+        return(
+        //   <Li key={button}>
+        //     <Link to="/test">
+        //       <StyledButton
+        //         className="content-selection"
+        //         onClick={() => clickHandler(button)}
+        //       >
+        //         {button == "all" ? "전체 랜덤" : button + " 년도"} 
+        //       </StyledButton>
+        //   </Link>
+        // </Li>
+        <Li key={button}>
+    
+            <StyledButton
+            to="/test"
+            className="content-selection"
+            onClick={() => clickHandler(button)}
+            > 
+              {button == "all" ? "전체 랜덤" : button + " 년도"} 
+            </StyledButton>
+
+      </Li>
+        )
+      })
+    )
+  }
+
+
   return (
     <Wrap>
       <Section className="content-title">
@@ -156,31 +188,7 @@ function MainContent(props) {
       </Section>
       <Section className="">
         <Ol>
-          <Li>
-            <Link to="/test">
-              <StyledButton
-                className="content-selection"
-                onClick={() => clickHandler("2019")}
-              >
-                전체 랜덤
-              </StyledButton>
-            </Link>
-          </Li>
-          <Li>
-            <StyledButton onClick={() => clickHandler("2019")}>
-              2019년도
-            </StyledButton>
-          </Li>
-          <Li>
-            <StyledButton onClick={() => clickHandler("2018")}>
-              2018년도
-            </StyledButton>
-          </Li>
-          <Li>
-            <StyledButton onClick={() => clickHandler("2017")}>
-              2017년도
-            </StyledButton>
-          </Li>
+          {renderButtons()}
         </Ol>
       </Section>
     </Wrap>

@@ -2,17 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
+// const P = styled.p`
+//   font-size: ${({ theme: { fontSizes } }) => (props) => {
+//     fontSizes.get(props.fontSize);
+//   }};
+// `;
+
 const P = styled.p`
-  font-size: ${({ theme: { fontSizes } }) => (props) => {
-    fontSizes.get(props.fontSize);
-  }};
-`;
+`
 
 function Paragraph(props) {
   return (
     <P {...props} color="WHITE">
       {props.children}
-      {console.log(typeof props, props)}
     </P>
   );
 }

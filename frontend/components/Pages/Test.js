@@ -18,12 +18,19 @@ function Test(props) {
   const [currQuestion, setCurrQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState(new Array(numOfStage));
 
-  useEffect(() => {}, []);
 
-  const sumitHandler = async () => {
+
+  useEffect(()=>{
+    setUserAnswers(userAnswers.fill(null))
+  }, [])
+
+  const submitHandler = () => {
+    console.log(userAnswers)
     var checkFin = userAnswers.indexOf(null);
+
     if (checkFin == -1) {
-      var res = await recordAnswer(userAnswers);
+      recordAnswer(userAnswers);
+      
     } else {
       alert("풀지 않은 문제가 있습니다.");
       setCurrQuestion(checkFin);
@@ -31,7 +38,7 @@ function Test(props) {
   };
 
   const renderPage = () => {
-    return test.answers.indexOf(null) == -1 ? (
+    return test.answers != null ? (
       <Redirect to="/result" />
     ) : (
       <DefaultTemplate
@@ -41,7 +48,7 @@ function Test(props) {
             numOfStage={numOfStage}
             currQuestion={currQuestion}
             clickHandler={setCurrQuestion}
-            submitHandler={sumitHandler}
+            submitHandler={submitHandler}
           />
         }
       >

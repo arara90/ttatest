@@ -14,21 +14,22 @@ const Section = styled.section`
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
-  padding-top: 20px;
-
-  // border: solid 1px #979797;
 `;
 
-const StyledImage = styled(Image)`
+const ImageBox = styled.div`
   flex: 1;
+  padding: 30px 20px 20px 20px;
+`
+const StyledImage = styled(Image)`
 `;
 
 const ResultBox = styled.div`
   flex: 1;
   width: 100%;
-  padding: 20px;
+
 
   display: flex;
   align-items: center;
@@ -38,8 +39,6 @@ const ResultBox = styled.div`
   line-height: 24px;
 
   font-size: 18px;
-
-  // border: solid 1px blue;
 `;
 
 const Buttons = styled.div`
@@ -56,17 +55,6 @@ const Buttons = styled.div`
   // border: solid 1px red;
 `;
 
-// width: 40px;
-// height: 40px;
-// const buttonCss = css`
-//   display: flex;
-//   width: 100%;
-
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: transparent;
-// `
 
 const StyledButton = styled(Button)``;
 
@@ -77,30 +65,48 @@ const StyledLink = styled.a`
   background-color: transparent;
 `;
 
+const generateMessage=(score)=>{
+  if(score<5){
+    return {"message":"조금만 더 힘내세요!", "icon":"wink2.png"}
+  }else if(score<8){
+    return {"message":"대단합니다!", "icon":"thumb-up.png"}
+  }else if(score<10){
+    return {"message":" 훌륭합니다!", "icon":"congratulation.svg"}
+  }else{
+    return {"message":"완벽해요!", "icon":"prize-gold.png"}
+  }
+}
+
 function ResultContent(props) {
-  const { score } = props;
+
+  const {score, numofQuestions} = props;
+  const result = generateMessage(score);
+
   return (
     <Section className="result-content">
+      <ImageBox>
       <StyledImage
-        icon="congratulation.svg"
+        icon={result.icon}
         width="100px"
         height="100px"
-      ></StyledImage>
+      />
+      </ImageBox>
       <ResultBox>
         <span>
-          대단합니다.
-          <br />
-          {score}문제를 맞추셨군요. <br />
-          {score}/{20}
+          {score}/{numofQuestions} <br/>
+          {score}문제를 맞추셨군요. <br/>
+          {result.message}
         </span>
       </ResultBox>
       <Buttons>
         <StyledButton height="40px">틀린 문제 보기</StyledButton>
-        <StyledLink>처음으로</StyledLink>
+        <StyledLink href="/">처음으로</StyledLink>
       </Buttons>
     </Section>
   );
 }
+
+
 
 ResultContent.propTypes = {
   score: PropTypes.number,

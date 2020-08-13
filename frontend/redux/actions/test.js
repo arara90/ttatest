@@ -4,7 +4,6 @@ import datas from "./datas/datas";
 import { GET_TESTDATA, RECORD_ANSWER } from "./types";
 
 export const getTestData = (year, questions, options) => (dispatch) => {
-  console.log("action, getTestData ");
   dispatch({
     type: GET_TESTDATA,
     payload: { year: year, questions: questions, options: options },
