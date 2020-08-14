@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
         min-width : 280px;
         background-color: ${({ theme: { colors } }) => colors.BLUE};
 
-        font-family: Roboto, sans-serif;
+        font-family: 'Noto Sans KR', 'Roboto', 'sans-serif';
         font-size: 16px;
     
         @media screen and (min-width: 640px)  {
@@ -83,6 +83,28 @@ const GlobalStyle = createGlobalStyle`
     }
 
 
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 10px;
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background-color: #dadada;
+      
+        &:hover {
+            background-color: #bfbfbf;
+        }
+      
+        
+        &:active {
+        }
+      }
+      
+      &::-webkit-scrollbar-track {
+        border-radius: 5px;
+        box-shadow: inset 0px 0px 3x white;
+      }
 
 `;
 

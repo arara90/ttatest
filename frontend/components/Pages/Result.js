@@ -6,8 +6,8 @@ import EmptyTemplate from "../Template/EmptyTemplate";
 import ResultContent from "../Organism/contents/ResultContent";
 
 function Result(props){
-  var [score, setScore] = useState(0);
-  var {questions, answers} = props.test;
+  const [score, setScore] = useState(0);
+  const {questions, answers, numOfQuestions} = props.test;
 
   useEffect(()=>{
     var resultArray = [];
@@ -21,14 +21,12 @@ function Result(props){
         resultArray.push(0);
       }
     }
-
     setScore(correct)
-
   }, [])
   
   return (
     <EmptyTemplate>
-      <ResultContent score={score} numOfQuestions={questions.length}/>
+      <ResultContent score={score} numOfQuestions={numOfQuestions}/>
     </EmptyTemplate>
   );
 }

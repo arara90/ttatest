@@ -31,20 +31,14 @@ const MainTemplate = ({ header, children, ...props }) => {
   );
 };
 
-// MainTemplate.propTypes = {
-//   header: PropTypes.node.isRequired,
-//   hero: PropTypes.node,
-//   sponsor: PropTypes.node,
-//   footer: PropTypes.node.isRequired,
-//   children: PropTypes.any.isRequired,
-// };
+MainTemplate.propTypes = {
+  header: PropTypes.node.isRequired,
+  children: PropTypes.any.isRequired,
+};
 
-// MainTemplate.defaultProps = {
-//   // header: "header  ",
-//   // hero: "hero    ",
-//   // sponsor: "sponsor ",
-//   // footer: "footer  ",
-//   // children: "children",
-// };
+MainTemplate.defaultProps = {
+  header: "header  ",
+  children: "children",
+};
 
 export default MainTemplate;

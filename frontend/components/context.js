@@ -1,12 +1,12 @@
 import React from "react";
 import useTTAContext from "./hooks";
-// import ModalContextPortal from "../AtomicComponents/A-Atomics/Modal/ModalPortal";
+// import ModalPortal from "./Atom/ModalPortal"
 
-let TTAContext;
-let { Provider } = (TTAContext = React.createContext());
+var TTAContext;
+const { Provider } = (TTAContext = React.createContext());
 
-let TTAContextProvider = ({ children }) => {
-  let { darkMode, setDarkMode, toggleDarkMode} = useTTAContext();
+const TTAContextProvider = ({ children }) => {
+  const { darkMode, setDarkMode, toggleDarkMode, modal, setModal,toggleModal} = useTTAContext();
 
   return (
     <Provider
@@ -14,6 +14,10 @@ let TTAContextProvider = ({ children }) => {
         darkMode,
         setDarkMode,
         toggleDarkMode,
+
+        modal,
+        setModal,
+        toggleModal,
       }}
     >
         {/* <ModalContextPortal /> */}

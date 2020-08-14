@@ -7,14 +7,11 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-
-  // border: solid 1px black;
 `;
 
 const Header = styled.header`
   width: 100%;
 `;
-//  z-index: 999;
 
 const Content = styled.section`
   flex: 1;
@@ -33,20 +30,15 @@ const LoadingTemplate = ({ header, children, ...props }) => {
   );
 };
 
-// EmptyTemplate.propTypes = {
-//   header: PropTypes.node.isRequired,
-//   hero: PropTypes.node,
-//   sponsor: PropTypes.node,
-//   footer: PropTypes.node.isRequired,
-//   children: PropTypes.any.isRequired,
-// };
+LoadingTemplate.propTypes = {
+  header: PropTypes.node.isRequired,
+  children: PropTypes.node,
+};
 
-// EmptyTemplate.defaultProps = {
-//   // header: "header  ",
-//   // hero: "hero    ",
-//   // sponsor: "sponsor ",
-//   // footer: "footer  ",
-//   // children: "children",
-// };
+LoadingTemplate.defaultProps = {
+  header: "header  ",
+  children: "children",
+};
+
 
 export default LoadingTemplate;

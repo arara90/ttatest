@@ -10,7 +10,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // border: solid 1px black;
 `;
 
 const EmptyTemplate = ({ children, ...props }) => {
@@ -21,20 +20,12 @@ const EmptyTemplate = ({ children, ...props }) => {
   );
 };
 
-// ResultTemplate.propTypes = {
-//   header: PropTypes.node.isRequired,
-//   hero: PropTypes.node,
-//   sponsor: PropTypes.node,
-//   footer: PropTypes.node.isRequired,
-//   children: PropTypes.any.isRequired,
-// };
+EmptyTemplate.propTypes = {
+  children: PropTypes.node,
+};
 
-// ResultTemplate.defaultProps = {
-//   // header: "header  ",
-//   // hero: "hero    ",
-//   // sponsor: "sponsor ",
-//   // footer: "footer  ",
-//   // children: "children",
-// };
+EmptyTemplate.defaultProps = {
+  children: "children",
+};
 
 export default EmptyTemplate;

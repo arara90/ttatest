@@ -13,10 +13,10 @@ import TestContent from "../Organism/contents/TestContent";
 import { recordAnswer } from "../../redux/actions/test";
 
 function Test(props) {
-  const numOfStage = 10;
+
   const {recordAnswer, test} = props;
   const [currQuestion, setCurrQuestion] = useState(0);
-  const [userAnswers, setUserAnswers] = useState(new Array(numOfStage));
+  const [userAnswers, setUserAnswers] = useState(new Array(test.numOfQuestions));
 
 
 
@@ -25,14 +25,12 @@ function Test(props) {
   }, [])
 
   const submitHandler = () => {
-    console.log(userAnswers)
     var checkFin = userAnswers.indexOf(null);
 
     if (checkFin == -1) {
       recordAnswer(userAnswers);
-      
     } else {
-      alert("풀지 않은 문제가 있습니다.");
+      alert("아직 풀지 않은 문제가 있습니다.")
       setCurrQuestion(checkFin);
     }
   };
@@ -42,10 +40,10 @@ function Test(props) {
       <Redirect to="/result" />
     ) : (
       <DefaultTemplate
-        header={<Header headerTitle={(currQuestion+1)+"/"+numOfStage} />}
+        header={<Header headerTitle={(currQuestion+1)+"/"+test.numOfQuestions} />}
         footer={
           <Footer
-            numOfStage={numOfStage}
+            numOfQuestions={test.numOfQuestions}
             currQuestion={currQuestion}
             clickHandler={setCurrQuestion}
             submitHandler={submitHandler}

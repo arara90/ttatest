@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
 
-import IconLink from "../Molecule/IconLink";
 import Image from "../Atom/Image";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import Link from "../Atom/Link";
 
-// import { toggleDarkMode } from "../../redux/actions/status";
 import { TTAContext } from "../context";
 
 const Wrap = styled.div`
@@ -51,11 +49,10 @@ const HeaderTitle = styled.div`
 `;
 
 const Header = (props) => {
-  // const { darkMode, toggleDarkMode } = props;
   const { darkMode, toggleDarkMode } = useContext(TTAContext);
   return (
     <Wrap {...props}>
-      <StyledLink to="/">
+      <StyledLink href="/">
         <Image icon="home-white.png" width="20px" height="20px" />
       </StyledLink>
 
