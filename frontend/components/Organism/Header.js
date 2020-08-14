@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -7,8 +7,16 @@ import IconLink from "../Molecule/IconLink";
 import Image from "../Atom/Image";
 import { Link } from "react-router-dom";
 
+// import { toggleDarkMode } from "../../redux/actions/status";
+import { TTAContext } from "../context";
+
 const Wrap = styled.div`
-  height: 100%;
+  height: 2.5rem;
+
+  @media screen and (min-width: 640px)  {
+    height: 3rem;
+  }
+  
   width: 100%;
   display: flex;
   background-color: ${({ theme: { colors } }) => colors.DARKBLUE};
@@ -16,13 +24,13 @@ const Wrap = styled.div`
 
 const buttonCss = css`
   width: 40px;
-  height: 40px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: transparent;
 `;
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   ${buttonCss}
 `;
 const Button = styled.button`
@@ -43,26 +51,24 @@ const HeaderTitle = styled.div`
 `;
 
 const Header = (props) => {
-  const { darkMode } = props;
-
+  // const { darkMode, toggleDarkMode } = props;
+  const { darkMode, toggleDarkMode } = useContext(TTAContext);
   return (
     <Wrap {...props}>
-      <StyledLink>
-        <IconLink to="/" icon="home-white.png" width="20px" height="20px" />
+      <StyledLink to="/">
+        <Image icon="home-white.png" width="20px" height="20px" />
       </StyledLink>
+
       <HeaderTitle>{props.headerTitle}</HeaderTitle>
-      <Button>
+
+      <Button onClick={toggleDarkMode}>
         <Image icon="moon.png" width="20px" height="20px" />
       </Button>
     </Wrap>
   );
 };
 
-const mapStateToProps = (state) => ({
-  darkMode: state.status.darkMode,
-});
-
-export default connect(mapStateToProps, {})(Header);
+export default Header;
 
 Header.propTypes = {
   headerTitle: PropTypes.string,

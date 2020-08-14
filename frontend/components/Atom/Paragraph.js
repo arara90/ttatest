@@ -2,17 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const P = styled.p`
-  font-size: ${({ theme: { fontSizes } }) => (props) => {
-    fontSizes.get(props.fontSize);
-  }};
-`;
+
+const P = styled.p`  
+  color: ${props=>props.theme.colors.[props.color]};
+  font-size: ${props=>props.theme.fontSizes.[props.fontSize]};
+
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5em;
+  letter-spacing: normal;
+
+  
+`
 
 function Paragraph(props) {
   return (
-    <P {...props} color="WHITE">
+    <P {...props}>
       {props.children}
-      {console.log(typeof props, props)}
     </P>
   );
 }
@@ -20,9 +26,11 @@ function Paragraph(props) {
 export default Paragraph;
 
 Paragraph.propTypes = {
+  color: PropTypes.string,
   fontSize: PropTypes.string,
 };
 
 Paragraph.defaultProps = {
+  color: "DARKFONT",
   fontSize: "small",
 };

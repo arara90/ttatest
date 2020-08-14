@@ -1,48 +1,43 @@
 import React from "react";
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 import Button from "../../Atom/Button";
 import Image from "../../Atom/Image";
-
+import Paragraph from "../../Atom/Paragraph"
+import Link from "../../Atom/Link";
 
 const Section = styled.section`
   background-color: white;
   width: 70%;
   height: 380px;
   border-radius: 8px;
-  background-color: #ffffff;  
+  background-color: #ffffff;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
-  padding-top: 20px;
-
-  // border: solid 1px #979797;
 `;
 
-const StyledImage = styled(Image)`
+const ImageBox = styled.div`
   flex: 1;
-
+  padding: 30px 20px 20px 20px;
 `
+const StyledImage = styled(Image)`
+`;
 
 const ResultBox = styled.div`
   flex: 1;
   width: 100%;
-  padding : 20px;
+
 
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  line-height: 24px;
-
-  font-size: 18px;
-
-  // border: solid 1px blue;
-`
+`;
 
 const Buttons = styled.div`
   flex: 1;
@@ -53,63 +48,84 @@ const Buttons = styled.div`
   align-items: center;
   justify-content: space-around;
 
-  padding:20px;
+  padding: 20px;
+`;
 
-  // border: solid 1px red;
-`
-
-  // width: 40px;
-  // height: 40px;
-// const buttonCss = css`
-//   display: flex;
-//   width: 100%;
-
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: transparent;
-// `
 
 const StyledButton = styled(Button)`
+  background-color: ${props=>props.theme.colors.DARKBLUE};
+  color: ${props=>props.theme.colors.WHITE};
+`;
 
-`
-
-const StyledLink = styled.a`
-
+const StyledLink = styled(Link)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: transparent;
-`
+`;
+
+const ScoreParagraph = styled(Paragraph)`
+  color : ${props=>props.theme.colors.[props.color]};
+  font-weight: bold;
+`;
+
+const Message = styled(Paragraph)`
+  color : ${props=>props.theme.colors.FONT};
+  font-weight: bold;
+  text-align: center;
+`;
+
+const generateMessage=(score)=>{
+  if(score<6){
+    return {"message":"조금만 더 힘내세요!", "icon":"wink2.png"}
+  }else if(score<8){
+    return {"message":"대단합니다!", "icon":"thumb-up.png"}
+  }else if(score<10){
+    return {"message":" 훌륭합니다!", "icon":"congratulation.svg"}
+  }else{
+    return {"message":"완벽해요!", "icon":"prize-gold.png"}
+  }
+}
 
 function ResultContent(props) {
-  const {score} = props;
-    return (
-      <Section className="result-content">
-        <StyledImage icon="congratulation.svg" width="100px" height="100px"></StyledImage>
-        <ResultBox>
-          <span>
-            대단합니다.<br/>
-            {score}문제를 맞추셨군요. <br/>
-            {score}/{20}
-          </span>
-            </ResultBox>
-        <Buttons >
-          <StyledButton height="40px">틀린 문제 보기</StyledButton>
-          <StyledLink>처음으로</StyledLink>
-        </Buttons>
-      </Section>
-    )
+
+  const {score, numOfQuestions} = props;
+  const result = generateMessage(score);
+
+  return (
+    <Section className="result-content">
+      <ImageBox>
+      <StyledImage
+        icon={result.icon}
+        width="100px"
+        height="100px"
+      />
+      </ImageBox>
+      <ResultBox>
+        <ScoreParagraph color="DARKBLUE" fontSize="medium">
+          {score}/{numOfQuestions} <br/>
+        </ScoreParagraph>
+        <Message>
+          {score}문제를 맞추셨군요. <br/>
+          {result.message}
+        </Message>
+      </ResultBox>
+      <Buttons>
+        <StyledButton height="40px">틀린 문제 보기</StyledButton>
+        <StyledLink href="/">처음으로</StyledLink>
+      </Buttons>
+    </Section>
+  );
 }
+
+
 
 ResultContent.propTypes = {
   score: PropTypes.number,
-  
 };
 
 ResultContent.defaultProps = {
   score: 0,
-
 };
 
-export default ResultContent
+export default ResultContent;

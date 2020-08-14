@@ -5,25 +5,35 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   min-height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 
+  // border: solid 1px black;
+`;
+
+const Header = styled.header`
+  width: 100%;
+`;
+//  z-index: 999;
+
+const Content = styled.section`
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // border: solid 1px black;
 `;
 
-
-
-const ResultTemplate = ({children, ...props}) => {
+const LoadingTemplate = ({ header, children, ...props }) => {
   return (
-    <Wrapper {...props} className="DT">
-      {children}
+    <Wrapper {...props}>
+      <Header>{header}</Header>
+      <Content>{children}</Content>
     </Wrapper>
   );
 };
 
-// ResultTemplate.propTypes = {
+// EmptyTemplate.propTypes = {
 //   header: PropTypes.node.isRequired,
 //   hero: PropTypes.node,
 //   sponsor: PropTypes.node,
@@ -31,7 +41,7 @@ const ResultTemplate = ({children, ...props}) => {
 //   children: PropTypes.any.isRequired,
 // };
 
-// ResultTemplate.defaultProps = {
+// EmptyTemplate.defaultProps = {
 //   // header: "header  ",
 //   // hero: "hero    ",
 //   // sponsor: "sponsor ",
@@ -39,4 +49,4 @@ const ResultTemplate = ({children, ...props}) => {
 //   // children: "children",
 // };
 
-export default ResultTemplate;
+export default LoadingTemplate;
