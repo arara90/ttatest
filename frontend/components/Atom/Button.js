@@ -10,7 +10,7 @@ const styles = css`
   cursor: pointer;
   text-overflow: ellipsis;
 
-  font-size:  ${props => props.theme.fontSizes.[props.fontSize]};
+  font-size: ${props => props.theme.fontSizes.[props.fontSize]};
   color: ${props => props.theme.colors.[props.color]};
 
   font-weight: bold;
@@ -34,10 +34,11 @@ const styles = css`
   }
 
   ${(props) => (props.isSelected ? `
-  background-color: ${props.theme.colors.BORA};
-  color :${props.theme.colors.WHITE}
-  `:`background-color: ${props.theme.colors.WHITE};
-  color :${props.theme.colors.FONT}`)
+    background-color: ${props.theme.colors.BORA};
+    color :${props.theme.colors.WHITE}
+  `:`
+    background-color: ${props.theme.colors.WHITE};
+    color :${props.theme.colors.FONT}`)
   };
 `;
 

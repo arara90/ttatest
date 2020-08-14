@@ -10,7 +10,7 @@ import Link from "../../Atom/Link";
 const Section = styled.section`
   background-color: white;
   width: 70%;
-  height: 380px;
+  height: 450px;
   border-radius: 8px;
   background-color: #ffffff;
 
@@ -18,12 +18,11 @@ const Section = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 `;
 
 const ImageBox = styled.div`
   flex: 1;
-  padding: 30px 20px 20px 20px;
+  padding: 2rem;
 `
 const StyledImage = styled(Image)`
 `;
@@ -31,7 +30,6 @@ const StyledImage = styled(Image)`
 const ResultBox = styled.div`
   flex: 1;
   width: 100%;
-
 
   display: flex;
   flex-direction: column;
@@ -48,7 +46,7 @@ const Buttons = styled.div`
   align-items: center;
   justify-content: space-around;
 
-  padding: 20px;
+  padding: 1.5rem;
 `;
 
 
@@ -71,6 +69,7 @@ const ScoreParagraph = styled(Paragraph)`
 
 const Message = styled(Paragraph)`
   color : ${props=>props.theme.colors.FONT};
+  line-height: 2em;
   font-weight: bold;
   text-align: center;
 `;
@@ -111,14 +110,12 @@ function ResultContent(props) {
         </Message>
       </ResultBox>
       <Buttons>
-        <StyledButton height="40px">틀린 문제 보기</StyledButton>
+        <StyledButton to="/review" height="3rem">문제 다시 보기</StyledButton>
         <StyledLink href="/">처음으로</StyledLink>
       </Buttons>
     </Section>
   );
 }
-
-
 
 ResultContent.propTypes = {
   score: PropTypes.number,

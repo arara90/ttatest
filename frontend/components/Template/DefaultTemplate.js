@@ -32,20 +32,16 @@ const DefaultTemplate = ({ header, children, footer, ...props }) => {
   );
 };
 
-// DefaultTemplate.propTypes = {
-//   header: PropTypes.node.isRequired,
-//   hero: PropTypes.node,
-//   sponsor: PropTypes.node,
-//   footer: PropTypes.node.isRequired,
-//   children: PropTypes.any.isRequired,
-// };
+DefaultTemplate.propTypes = {
+  header: PropTypes.node.isRequired,
+  footer: PropTypes.node,
+  children: PropTypes.node,
+};
 
-// DefaultTemplate.defaultProps = {
-//   // header: "header  ",
-//   // hero: "hero    ",
-//   // sponsor: "sponsor ",
-//   // footer: "footer  ",
-//   // children: "children",
-// };
+DefaultTemplate.defaultProps = {
+  header: "header  ",
+  footer: "footer  ",
+  children: "children",
+};
 
 export default DefaultTemplate;

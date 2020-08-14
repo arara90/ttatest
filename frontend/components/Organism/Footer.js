@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 const Wrap = styled.div`
   border-top: solid 1px ${({ theme: { colors } }) => colors.WHITE};
 
-  height: 2.5rem;
+  height: 3rem;
   @media screen and (min-width: 640px)  {
     height: 3.5rem;
   }
@@ -31,6 +31,8 @@ const buttonCss = css`
   color: ${({ theme: { colors } }) => colors.WHITE};
   font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
   font-weight: bold;
+
+  cursor: pointer;
   
 `;
 
@@ -39,15 +41,15 @@ const Button = styled.button`
 `;
 
 const Footer = (props) => {
-  const { numOfStage, currQuestion, clickHandler, submitHandler } = props;
+  const { numOfQuestions, currQuestion, clickHandler, submitHandler } = props;
 
   const prevClickHandler = () => {
     if (currQuestion > 0) clickHandler((prev) => prev - 1);
   };
 
   const nextClickHandler = () => {
-    if (currQuestion < numOfStage - 1) clickHandler((prev) => prev + 1);
-    else if (currQuestion == numOfStage - 1) submitHandler();
+    if (currQuestion < numOfQuestions - 1) clickHandler((prev) => prev + 1);
+    else if (currQuestion == numOfQuestions - 1) submitHandler();
   };
 
   return (
@@ -57,7 +59,7 @@ const Footer = (props) => {
       </Button>
 
       <Button onClick={nextClickHandler}>
-        <p>{currQuestion == numOfStage - 1 ? "제출" : "다음"}</p>
+        <p>{currQuestion == numOfQuestions - 1 ? "완료" : "다음"}</p>
       </Button>
     </Wrap>
   );

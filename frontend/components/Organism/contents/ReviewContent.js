@@ -1,9 +1,8 @@
-import React, { useState, useEffect} from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 import styled from "styled-components";
 import Button from "../../Atom/Button";
-import Paragraph from "../../Atom/Paragraph";
 import Card from "../../Molecule/Card"; 
 
 const Wrap = styled.div`
@@ -18,8 +17,8 @@ const Section = styled.section`
   max-height: 50%;
 `;
 
-const StyledCard = styled(Card)`
-`
+const StyledCard = styled(Card)``
+
 const Ol = styled.ol`
   flex: 1;
   display: flex;
@@ -55,23 +54,16 @@ const Li = styled.li`
   }
 `;
 
+const StyledButton = styled(Button)`
+  ${props => props.isCorrect ? `
+    background-color: ${props.theme.colors.YELLOW};
+    color: ${props.theme.colors.WHITE};` : null}
+`
 
-function Test(props) {
-  const { year, questions, options } = props.test;
-  const { userAnswers, currQuestion, selectHandler } = props;
+function ReviewContent(props) {
+  const { year, questions, answers, options } = props.test;
+  const { currQuestion, clickHandler } = props;
   const datas = props.data[year];
-
-  const [changeCount, setChangeCount ] = useState(0)   // 버튼 클릭시 userAnswers 배열의 변화 감지 대체용 (JSON.stringify(data)보다 간단한 작업)
-
-  const clickHandler = (e, option) => {
-    var newAnswers = userAnswers;
-
-    if(newAnswers[currQuestion] == option) newAnswers[currQuestion] = null;
-    else newAnswers[currQuestion] = option;
-
-    selectHandler(newAnswers);
-    setChangeCount(prev=>prev+1) //버튼 색깔 변경을 위한 re-render 유도 
-  };
 
   const renderOptions = () => {
     var currOptions = options[currQuestion];
@@ -79,14 +71,14 @@ function Test(props) {
     return currOptions.map((option) => {
       return (
         <Li key={option}>
-          <Button
+          <StyledButton
             type="button"
-            height="100%"
-            isSelected = {userAnswers[currQuestion] == option}
-            onClick={(e) => clickHandler(e, option)}
+            isSelected = {answers[currQuestion] == option} //선택한 답변
+            isCorrect = {questions[currQuestion] == option} //정답
+            onClick={(e) => clickHandler(option)}
           >
             {datas[option].title}
-          </Button>
+          </StyledButton>
         </Li>
       );
     });
@@ -94,7 +86,7 @@ function Test(props) {
   return (
     <Wrap>
       <Section className="test-question" >
-          <StyledCard>{datas[questions[currQuestion]].content}</StyledCard>
+        <StyledCard>{datas[questions[currQuestion]].content}</StyledCard>
       </Section>
       <Section className="test-options">
         <Ol>{renderOptions()}</Ol>
@@ -107,4 +99,4 @@ const mapStateToProps = (state) => ({
   data: state.data,
 });
 
-export default connect(mapStateToProps, {})(Test);
+export default connect(mapStateToProps, {})(ReviewContent);

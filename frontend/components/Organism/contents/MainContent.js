@@ -66,16 +66,16 @@ const StyledButton = styled(Button)`
   min-height: 40px;
 `;
 
-const getQuestions = (dataLength, numberOfQuestions = 10) => {
+const getQuestions = (dataLength, numOfQuestions = 10) => {
   var i = 0;
   var questions = [];
 
   //1.문제 담기
-  while (i < numberOfQuestions) {
+  while (i < numOfQuestions) {
     questions.push(Math.floor(Math.random() * dataLength));
-    if (questions.length == numberOfQuestions) {
+    if (questions.length == numOfQuestions) {
       var resQ = new Set(questions);
-      if (resQ.size < numberOfQuestions) {
+      if (resQ.size < numOfQuestions) {
         //중복제거
         i = resQ.size;
         questions = [...resQ];
@@ -87,7 +87,7 @@ const getQuestions = (dataLength, numberOfQuestions = 10) => {
   return questions;
 };
 
-const getOptions = (dataLength, questions = [], numberOfOptions = 4) => {
+const getOptions = (dataLength, questions = [], numOfOptions = 4) => {
   var i = 0;
   var options = [];
   var optionsItem = [];
@@ -103,7 +103,7 @@ const getOptions = (dataLength, questions = [], numberOfOptions = 4) => {
 
   questions.forEach((answer) => {
     optionsItem = [];
-    for (var j = 0; j < numberOfOptions; j++) {
+    for (var j = 0; j < numOfOptions; j++) {
       //option item 넣기
       if (j == 0) optionsItem.push(answer);
       //정답넣기
@@ -111,9 +111,9 @@ const getOptions = (dataLength, questions = [], numberOfOptions = 4) => {
         optionsItem.push(Math.floor(Math.random() * dataLength));
       }
 
-      if (optionsItem.length == numberOfOptions) {
+      if (optionsItem.length == numOfOptions) {
         var res = new Set(optionsItem);
-        if (res.size < numberOfOptions) {
+        if (res.size < numOfOptions) {
           //중복제거
           j = res.size - 1;
           optionsItem = [...res];
@@ -133,38 +133,26 @@ function MainContent(props) {
   const { data, hasLoadedDatas, getTestData } = props;
 
   const clickHandler = (year) => {
-    console.log("clickHandler", year);
     var questions = [];
     var options = [];
-    const numberOfQuestions = 10;
-    const numberOfOptions = 4;
+    const numOfQuestions = 10;
+    const numOfOptions = 4;
 
     if (hasLoadedDatas) {
-      questions = getQuestions(data[year].length, numberOfQuestions);
-      options = getOptions(data[year].length, questions, numberOfOptions);
+      questions = getQuestions(data[year].length, numOfQuestions);
+      options = getOptions(data[year].length, questions, numOfOptions);
     }
 
-    getTestData(year, questions, options);
+    getTestData({year, questions, options, numOfQuestions});
   };
 
   const renderButtons = () => {
     const buttons = Object.keys(data)
-    buttons.push("all");
+    // buttons.push("all");
     return (
       buttons.reverse().map((button)=>{
         return(
-        //   <Li key={button}>
-        //     <Link to="/test">
-        //       <StyledButton
-        //         className="content-selection"
-        //         onClick={() => clickHandler(button)}
-        //       >
-        //         {button == "all" ? "전체 랜덤" : button + " 년도"} 
-        //       </StyledButton>
-        //   </Link>
-        // </Li>
         <Li key={button}>
-    
             <StyledButton
             to="/test"
             className="content-selection"
@@ -172,7 +160,6 @@ function MainContent(props) {
             > 
               {button == "all" ? "전체 랜덤" : button + " 년도"} 
             </StyledButton>
-
       </Li>
         )
       })
