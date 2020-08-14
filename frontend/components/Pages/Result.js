@@ -28,7 +28,7 @@ function Result(props){
   
   return (
     <EmptyTemplate>
-      <ResultContent score={score} numofQuestions={questions.length}/>
+      <ResultContent score={score} numOfQuestions={questions.length}/>
     </EmptyTemplate>
   );
 }

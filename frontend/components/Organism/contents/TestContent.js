@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 
 import styled from "styled-components";
 import Button from "../../Atom/Button";
-import Image from "../../Atom/Image";
-// import Paragraph from "../../Atom/Paragraph";
+import Paragraph from "../../Atom/Paragraph";
 
 const Wrap = styled.div`
   width: 100%;
@@ -15,49 +14,77 @@ const Wrap = styled.div`
 const Section = styled.section`
   flex: 1;
   display: flex;
-`;
-
-const Quiz = styled.div`
-  flex: 1;
+  max-height: 50%;
 `;
 
 const Card = styled.div`
-  flex: 1;
-
-  overflow: scroll;
-  width: 100%;
-  height: 100%;
-  word-break: break-all;
-
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 0 13px 0 rgba(43, 43, 43, 0.5);
 
-  font-size: 18px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: center;
+  flex: 1;
+  word-break: break-all;
+  
+  overflow-y: scroll;
+  overflow-x: hidden;
 
-  padding: 15px;
+  position: relative;
 `;
 
+const StyledParagraph = styled(Paragraph)`
+  font-weight: bold;
+
+  position: absolute;
+  top:0;
+  left:0;
+  
+  @media screen and (max-width: 640px) {
+    padding: 1.2rem;
+  }
+  @media screen and (min-width: 640px)  {
+    padding: 1.5rem;
+  }
+  
+`
+
+
 const Ol = styled.ol`
+  
   flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+
+  @media screen and (max-width: 640px)  {
+    padding-top: 0.5rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 640px)  {
+    padding-top: 1rem;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: space-between;
+    align-content: space-around;
+  }
 `;
 
 const Li = styled.li`
-  flex: 1;
   list-style: none;
-  padding-top: 15px;
-  width: 100%;
+
+  @media screen and (max-width: 640px)  {
+    flex: 1;
+    padding-top: 0.6rem;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 640px)  {
+    width: 48%;
+    height: 45%;
+  }
 `;
+
+
 
 function Test(props) {
   const { year, questions, options } = props.test;
@@ -68,7 +95,10 @@ function Test(props) {
 
   const clickHandler = (e, option) => {
     var newAnswers = userAnswers;
-    newAnswers[currQuestion] = option;
+
+    if(newAnswers[currQuestion] == option) newAnswers[currQuestion] = null;
+    else newAnswers[currQuestion] = option;
+
     selectHandler(newAnswers);
     setChangeCount(prev=>prev+1) //버튼 색깔 변경을 위한 re-render 유도 
   };
@@ -92,12 +122,11 @@ function Test(props) {
   };
   return (
     <Wrap>
-      <Section className="test-question" style={{ position: "relative" }}>
-        <Quiz>
-          <Card style={{ position: "absolute" }}>
-            <p>{datas[questions[currQuestion]].content}</p>
+      <Section className="test-question" >
+          <Card >
+            <StyledParagraph>{datas[questions[currQuestion]].content}</StyledParagraph>
           </Card>
-        </Quiz>
+ 
       </Section>
 
       <Section className="test-options">

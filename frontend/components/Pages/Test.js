@@ -14,7 +14,7 @@ import { recordAnswer } from "../../redux/actions/test";
 
 function Test(props) {
   const numOfStage = 10;
-  const { recordAnswer, test } = props;
+  const {recordAnswer, test} = props;
   const [currQuestion, setCurrQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState(new Array(numOfStage));
 
@@ -42,7 +42,7 @@ function Test(props) {
       <Redirect to="/result" />
     ) : (
       <DefaultTemplate
-        header={<Header />}
+        header={<Header headerTitle={(currQuestion+1)+"/"+numOfStage} />}
         footer={
           <Footer
             numOfStage={numOfStage}

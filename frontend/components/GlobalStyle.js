@@ -42,13 +42,19 @@ const GlobalStyle = createGlobalStyle`
         min-height: 520px;
         min-width : 280px;
         background-color: ${({ theme: { colors } }) => colors.BLUE};
+
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+    
+        @media screen and (min-width: 640px)  {
+            font-size: 18px;
+        }
     }
+
     body{
         min-height: 520px;
         min-width : 280px;
         line-height: 1;
-        background-color: ${({ theme: { colors } }) => colors.BLUE};
-
         height: 100vh;
     }
 
@@ -69,11 +75,7 @@ const GlobalStyle = createGlobalStyle`
     table {
         border-collapse: collapse;
         border-spacing: 0;
-}
-
-
-
-
+    }
 
     button {
         outline: none;

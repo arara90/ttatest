@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 
 import Button from "../../Atom/Button";
 import Image from "../../Atom/Image";
+import Paragraph from "../../Atom/Paragraph"
+import Link from "../../Atom/Link";
 
 const Section = styled.section`
   background-color: white;
@@ -32,13 +34,9 @@ const ResultBox = styled.div`
 
 
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-
-  text-align: center;
-  line-height: 24px;
-
-  font-size: 18px;
 `;
 
 const Buttons = styled.div`
@@ -51,22 +49,34 @@ const Buttons = styled.div`
   justify-content: space-around;
 
   padding: 20px;
-
-  // border: solid 1px red;
 `;
 
 
-const StyledButton = styled(Button)``;
+const StyledButton = styled(Button)`
+  background-color: ${props=>props.theme.colors.DARKBLUE};
+  color: ${props=>props.theme.colors.WHITE};
+`;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: transparent;
 `;
 
+const ScoreParagraph = styled(Paragraph)`
+  color : ${props=>props.theme.colors.[props.color]};
+  font-weight: bold;
+`;
+
+const Message = styled(Paragraph)`
+  color : ${props=>props.theme.colors.FONT};
+  font-weight: bold;
+  text-align: center;
+`;
+
 const generateMessage=(score)=>{
-  if(score<5){
+  if(score<6){
     return {"message":"조금만 더 힘내세요!", "icon":"wink2.png"}
   }else if(score<8){
     return {"message":"대단합니다!", "icon":"thumb-up.png"}
@@ -79,7 +89,7 @@ const generateMessage=(score)=>{
 
 function ResultContent(props) {
 
-  const {score, numofQuestions} = props;
+  const {score, numOfQuestions} = props;
   const result = generateMessage(score);
 
   return (
@@ -92,11 +102,13 @@ function ResultContent(props) {
       />
       </ImageBox>
       <ResultBox>
-        <span>
-          {score}/{numofQuestions} <br/>
+        <ScoreParagraph color="DARKBLUE" fontSize="medium">
+          {score}/{numOfQuestions} <br/>
+        </ScoreParagraph>
+        <Message>
           {score}문제를 맞추셨군요. <br/>
           {result.message}
-        </span>
+        </Message>
       </ResultBox>
       <Buttons>
         <StyledButton height="40px">틀린 문제 보기</StyledButton>

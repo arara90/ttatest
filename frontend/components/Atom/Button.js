@@ -8,9 +8,11 @@ const styles = css`
   height: ${(props) => props.height};
 
   cursor: pointer;
-
   text-overflow: ellipsis;
-  font-size: 18px;
+
+  font-size:  ${props => props.theme.fontSizes.[props.fontSize]};
+  color: ${props => props.theme.colors.[props.color]};
+
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -19,9 +21,7 @@ const styles = css`
   text-decoration: none;
 
   border-radius: 8px;
-  line-height: 24px;
-
-  color: #5c5c5c;
+  line-height: 1.5em;
 
   display: flex;
   justify-content: center;
@@ -50,11 +50,6 @@ const StyledLink = styled(({ disabled, height, theme, ...props }) => (
 const Anchor = styled.a`
   ${styles}
 `;
-
-// ${(props) => (props.isSelected ? `
-// background-color: ${({ theme: { colors } }) => colors.BORA}
-// `:`background-color: ${({ theme: { colors } }) => colors.WHITE}`)
-// };
 
 const StyledButton = styled.button`
   ${styles}
@@ -85,4 +80,6 @@ Button.propTypes = {
 Button.defaultProps = {
   width :  "100%",
   height: "100%",
+  color: "FONT",
+  fontSize: "medium"
 };

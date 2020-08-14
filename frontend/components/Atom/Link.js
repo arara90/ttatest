@@ -8,26 +8,39 @@ const styles = css`
   text-decoration: none;
   font-weight: 500;
 
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 const StyledNavLink = styled(NavLink)`
   ${styles}
 `;
 
+
 const Anchor = styled.a`
   ${styles}
+  
+  &:link {
+    color: ${ props => props.theme.colors.LIGHTFONT};
+  }
+
+  &:hover {
+    color: ${props => props.theme.colors.LIGHTFONT};
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: ${props => props.theme.colors.LIGHTFONT};
+  }
 `;
 
-const Link = ({ ...props }) => {
-  const { to } = props;
+const Link = (props) => {
+  const { to, href } = props;
 
   if (to) {
     return <StyledNavLink {...props} />;
+  }else{
+    return <Anchor {...props} />;
   }
-  return <Anchor {...props} />;
+
 };
 
 export default Link;

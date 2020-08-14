@@ -1,17 +1,21 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import Image from "../Atom/Image";
-import { Link } from "react-router-dom";
 
 const Wrap = styled.div`
   border-top: solid 1px ${({ theme: { colors } }) => colors.WHITE};
-  height: 100%;
+
+  height: 2.5rem;
+  @media screen and (min-width: 640px)  {
+    height: 3.5rem;
+  }
+
   background-color: transparent;
 
   display: flex;
   flex-direction: row;
   align-items: center;
+
 `;
 
 const buttonCss = css`
@@ -24,11 +28,12 @@ const buttonCss = css`
   justify-content: center;
   background-color: transparent;
 
-  color: white;
+  color: ${({ theme: { colors } }) => colors.WHITE};
+  font-size: ${({ theme: { fontSizes } }) => fontSizes.small};
+  font-weight: bold;
+  
 `;
-const StyledLink = styled.a`
-  ${buttonCss}
-`;
+
 const Button = styled.button`
   ${buttonCss}
 `;

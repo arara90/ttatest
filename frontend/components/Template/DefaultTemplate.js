@@ -9,22 +9,17 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.header`
-  // border: solid 1px red;
   width: 100%;
 `;
-//  z-index: 999;
 
 const Content = styled.section`
-  // border: solid 1px violet;
   width: 100%;
   flex: 1;
-  padding: 25px;
+  padding: 1.5rem;
   display: flex;
 `;
 
-//   max-width: ${size("maxWidth")};
 const Footer = styled.footer`
-  height: 50px;
 `;
 
 const DefaultTemplate = ({ header, children, footer, ...props }) => {

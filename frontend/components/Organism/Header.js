@@ -11,7 +11,12 @@ import { Link } from "react-router-dom";
 import { TTAContext } from "../context";
 
 const Wrap = styled.div`
-  height: 100%;
+  height: 2.5rem;
+
+  @media screen and (min-width: 640px)  {
+    height: 3rem;
+  }
+  
   width: 100%;
   display: flex;
   background-color: ${({ theme: { colors } }) => colors.DARKBLUE};
@@ -19,7 +24,7 @@ const Wrap = styled.div`
 
 const buttonCss = css`
   width: 40px;
-  height: 40px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
