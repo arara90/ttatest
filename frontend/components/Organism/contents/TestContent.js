@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import Button from "../../Atom/Button";
 import Paragraph from "../../Atom/Paragraph";
-
+ 
 const Wrap = styled.div`
   width: 100%;
   display: flex;
