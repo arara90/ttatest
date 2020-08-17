@@ -34,6 +34,7 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 
 ![responsive](https://github.com/arara90/images/blob/master/ttatest/tta06.png?raw=true)
 
+
 ----------------------------------
 
 ### 일정 - 20.8.9(일) ~ 20.8.15(토) ,총 7일
@@ -69,6 +70,7 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 * Context 활용한 darkMode 적용
 * TTATest ver1 완료.
 
+
 ----------------------------------
 
 ### Features
@@ -81,14 +83,14 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 
   https://github.com/diegohaz/arc 적극 참고!
   
-  ----------------------------------
+
 
 ##### 2. styled-component의 theme과 GlobalStyle 적용.
 
 * theme으로 DarkMode를 구현. (+react Context)
 * GlobalStyle 이용 전체 components의 기본값 통일하고, html 태그에 너비에 따른 font-size를 지정하여 반응형 개발시 rem 활용.
 
-----------------------------------
+
 
 ##### 3. redux 사용한 상태 관리
 
@@ -97,6 +99,7 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 ![Atomic Design](https://github.com/arara90/images/blob/master/ttatest/tta09.png?raw=true)
 
 ![Atomic Design](https://github.com/arara90/images/blob/master/ttatest/tta10.png?raw=true)
+
 
 ----------------------------------
 
