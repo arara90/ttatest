@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config ./webpack.dev.js"
+    "start": "webpack-dev-server --config ./webpack.dev.js",
+    "prod": "webpack --mode production --config ./webpack.prod.js"
   },
   "keywords": [
     "test"
@@ -14,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "clean-webpack-plugin": "^3.0.0",
     "comma-separated-values": "^3.6.4",
     "html-webpack-plugin": "^4.3.0",
     "prop-types": "^15.7.2",
