@@ -1,6 +1,8 @@
 # TTA Test
 
-접속 URL : [http://ttatest.ga/](http://ttatest.ga/)
+URL : [http://ttatest.ga/](http://ttatest.ga/)
+
+
 
 정보처리기사와 ncs를 공부하는 학생 및 취준생을 위한 정보통신용어 사전 퀴즈.
 
@@ -12,7 +14,27 @@
 
 
 
-## TTA Ver 1.
+## TTATEST Ver 1.
+
+### UI 
+
+#### MAIN , TEST, RESULT 페이지
+
+![main](https://github.com/arara90/images/blob/master/ttatest/tta01.png?raw=true)
+
+
+
+#### REVIEW(문제 다시 보기) 와 DARK-MODE
+
+![review](https://github.com/arara90/images/blob/master/ttatest/tta04.png?raw=true)
+
+
+
+#### 반응형
+
+![responsive](https://github.com/arara90/images/blob/master/ttatest/tta06.png?raw=true)
+
+
 
 ### 일정 - 20.8.9(일) ~ 20.8.15(토) ,총 7일
 
@@ -49,39 +71,62 @@
 
 
 
-### 아쉬운점
+### Features
 
-1. 데이터 상태. 중간중간 정제되지 못한 데이터가 많아 test 도중 맞지 않는 데이터 발생
-2. Test 화면 내 Card UI. 카드 bottom에도 padding을 주고 싶은데 실패함.
-3. animation 적용. 시간이 부족해서 넣지 못했음.
-4. 처음 각오와 다르게 구현에 눈이 멀어 시맨틱을 신경쓰지 못했음.
+##### 1. Atomic Design
 
-#### 
+![Atomic Design](https://github.com/arara90/images/blob/master/ttatest/tta07.png?raw=true)
 
-### 잘한점
+- simetime을 만들면서 애매했던 Atomic Design에 대한 정리.
 
-1. Atomic Design에 대한 이해도 급상승. 
-2. 반응형 시도
-3. 미뤄뒀던 theme 적용.
-4. React 특히 Context, Redux 사용이 많이 부드러워졌음!
+  https://github.com/diegohaz/arc 적극 참고! 
+
+  
+
+##### 2. styled-component의 theme과 GlobalStyle 적용.
+
+* theme으로 DarkMode를 구현. (+react Context)
+* GlobalStyle 이용 전체 components의 기본값 통일하고, html 태그에 너비에 따른 font-size를 지정하여 반응형 개발시 rem 활용.
 
 
 
-#### NEXT
+##### 3. redux 사용한 상태 관리
 
-(기능추가)
+![Atomic Design](https://github.com/arara90/images/blob/master/ttatest/tta08.png?raw=true)
+
+![Atomic Design](https://github.com/arara90/images/blob/master/ttatest/tta09.png?raw=true)
+
+![Atomic Design](https://github.com/arara90/images/blob/master/ttatest/tta10.png?raw=true)
+
+
+
+### NEXT
+
+##### 1. 기능 추가
+
 1. animation 적용해서 동적인 화면 만들기.
+
 2. AWS에 올리기. --> git page로 대체(완료)
+
 3. '전체 랜덤' 기능 만들기
+
 4. 기본 alert 수정하기(modal 또는 react-alert로)
+
+   
 ----------------------------------
-(수정사항)
-5. home 누르면 다크모드 지워지는 것 수정하기
-6. 데이터 크롤링해서 다시 가져오고, 2문장까지만 보여주기.  +전체보기 기능
+##### 2. 개선 사항
 
+1. home 누르면 다크모드 지워지는 것 수정하기
 
+2. 데이터 크롤링해서 다시 가져오고, 2문장 까지만 보여주기.  
+   * 대신 전체보기 기능 추가 필요
+   * 문제 내에 정답 단어 포함 시 안보여주기
 
-#### 최종목표?
+3. 시맨틱 고려하기.
+
+   
+
+##### 3. 최종목표?
 1. 유저별로 문제 저장하기.
 
 
