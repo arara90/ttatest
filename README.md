@@ -1,6 +1,6 @@
 # TTA Test
 
-접속 UTR : [ttatest.ga](ttatest.ga)
+접속 URL : [ttatest.ga](ttatest.ga)
 
 정보처리기사와 ncs를 공부하는 학생 및 취준생을 위한 정보통신용어 사전 퀴즈.
 
