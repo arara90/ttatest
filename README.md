@@ -35,6 +35,7 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 ![responsive](https://github.com/arara90/images/blob/master/ttatest/tta06.png?raw=true)
 
 
+----------------------------------
 
 ### 일정 - 20.8.9(일) ~ 20.8.15(토) ,총 7일
 
@@ -70,6 +71,7 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 * TTATest ver1 완료.
 
 
+----------------------------------
 
 ### Features
 
@@ -77,11 +79,10 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 
 ![Atomic Design](https://github.com/arara90/images/blob/master/ttatest/tta07.png?raw=true)
 
-- simetime을 만들면서 애매했던 Atomic Design에 대한 정리.
-
-  https://github.com/diegohaz/arc 적극 참고! 
-
+- simetime을 만들면서 애매했던 Atomic Design에 대한 정리.  
+- https://github.com/diegohaz/arc 참고
   
+
 
 ##### 2. styled-component의 theme과 GlobalStyle 적용.
 
@@ -99,6 +100,7 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 ![Atomic Design](https://github.com/arara90/images/blob/master/ttatest/tta10.png?raw=true)
 
 
+----------------------------------
 
 ### NEXT
 
@@ -113,7 +115,6 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 4. 기본 alert 수정하기(modal 또는 react-alert로)
 
    
-----------------------------------
 ##### 2. 개선 사항
 
 1. home 누르면 다크모드 지워지는 것 수정하기
@@ -125,7 +126,6 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 3. 시맨틱 고려하기.
 
    
-
 ##### 3. 최종목표?
 1. 유저별로 문제 저장하기.
 
