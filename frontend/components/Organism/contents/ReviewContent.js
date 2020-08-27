@@ -65,6 +65,11 @@ function ReviewContent(props) {
   const { currQuestion, clickHandler } = props;
   const datas = props.data[year];
 
+  const transformContent = (question) => {
+    var content = question.content
+    return (content.split(".")[0] + ". "+ content.split(".")[1] + ".").replace(question.title, "[ ? ]")
+  }
+
   const renderOptions = () => {
     var currOptions = options[currQuestion];
 
@@ -86,7 +91,7 @@ function ReviewContent(props) {
   return (
     <Wrap>
       <Section className="test-question" >
-        <StyledCard>{datas[questions[currQuestion]].content}</StyledCard>
+        <StyledCard>{transformContent(datas[questions[currQuestion]])}</StyledCard>
       </Section>
       <Section className="test-options">
         <Ol>{renderOptions()}</Ol>
