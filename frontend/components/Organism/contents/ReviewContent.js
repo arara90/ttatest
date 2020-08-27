@@ -66,8 +66,15 @@ function ReviewContent(props) {
   const datas = props.data[year];
 
   const transformContent = (question) => {
-    var content = question.content
-    return (content.split(".")[0] + ". "+ content.split(".")[1] + ".").replace(question.title, "[ ? ]")
+    var content = (question.content.split(".")[0] + ". "+ question.content.split(".")[1] + ".")
+    var res = content.replace(question.title, "[ ? ]")
+    var keywords = question.keywords
+
+    keywords.forEach(keyword => {
+      if(keyword.length == 0 ) return;
+      res = res.replace(keyword, "[ ? ]")
+    }); 
+    return res
   }
 
   const renderOptions = () => {
