@@ -34,7 +34,6 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 
 ![responsive](https://github.com/arara90/images/blob/master/ttatest/tta06.png?raw=true)
 
-
 ----------------------------------
 
 ### 일정 - 20.8.9(일) ~ 20.8.15(토) ,총 7일
@@ -70,7 +69,6 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 * Context 활용한 darkMode 적용
 * TTATest ver1 완료.
 
-
 ----------------------------------
 
 ### Features
@@ -99,7 +97,6 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 
 ![Atomic Design](https://github.com/arara90/images/blob/master/ttatest/tta10.png?raw=true)
 
-
 ----------------------------------
 
 ### NEXT
@@ -108,21 +105,29 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 
 1. animation 적용해서 동적인 화면 만들기.
 
-2. AWS에 올리기. --> git page로 대체(완료)
+2. *AWS에 올리기. --> git page로 대체(완료)*
 
 3. '전체 랜덤' 기능 만들기
 
 4. 기본 alert 수정하기(modal 또는 react-alert로)
+
+5. *2020 추가(완료)*
 
    
 ##### 2. 개선 사항
 
 1. home 누르면 다크모드 지워지는 것 수정하기
 
-2. 데이터 크롤링해서 다시 가져오고, 2문장 까지만 보여주기.  
-   * 대신 전체보기 기능 추가 필요
-   * 문제 내에 정답 단어 포함 시 안보여주기
+2. *데이터 크롤링해서 다시 가져오고, 2문장 까지만 보여주기.   (완료)*
+   
+   * *대신 전체보기 기능 추가 필요 (완료)*
 
+   * *문제 내에 정답 단어 포함 시 안보여주기(완료)*
+   
+   * (**추가**) 단순히 split(".")으로 문장을 잘라낸 결과, 0.5% 또는 IEEE8.5와 같은 소수점도 문장으로 인식함. 이거 수정해야함(정규식?)
+   
+     ![problem](https://github.com/arara90/images/blob/master/ttatest/tta11.png?raw=true)
+   
 3. 시맨틱 고려하기.
 
    
