@@ -34,7 +34,14 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 
 ![responsive](https://github.com/arara90/images/blob/master/ttatest/tta06.png?raw=true)
 
-----------------------------------
+
+
+### 데이터 크롤링
+
+- Python(Selenium, Pandas) 사용 -- ( *[Lumos](https://github.com/lumos9x/Lumos_ver1) 변형 )
+- 코드보기 >> [SearchCrawling.py](https://github.com/arara90/ttatest/blob/master/crawling-python/SearchCrawling.py)
+
+-- --
 
 ### 일정 - 20.8.9(일) ~ 20.8.15(토) ,총 7일
 
