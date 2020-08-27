@@ -1,0 +1,132 @@
+국문표제어,영문표제어,약어,동의어
+개인용 푸드 컴퓨터,Personal Food Computer,PFC,
+농업정보기술,AgTech,,아그로테크(Agrotech)
+서버 이름 표시,Server Name Indication,SNI,
+이웃 영역 통신망,Neighborhood Area Network,NAN,
+비승인 정보기술,Shadow Information Technology,Shadow IT,"스텔스 IT(Stealth IT), 클라이언트 IT(Client IT), 사각지대 정보기술"
+구조화된 사이버 위협 정보 표현,Structured Threat Information eXpression,STIX,스틱스
+고 프로그래밍 언어,Go programming language,,"고랭(Golang), 고 언어"
+러스트 프로그래밍 언어,Rust programming language,,
+링크드 데이터,linked data,,연결 데이터
+엑스 대역,X band,,X 밴드
+와이파이,Wi-Fi,,
+통과대역 대역폭,passband bandwidth,,
+점유 대역폭,Occupied BandWidth,OBW,99% 대역폭
+케이유 대역,Ku band,,Ku 밴드
+카 대역,Ka band,,"Ka 밴드, 케이에이 밴드"
+케이 대역,K band,,K 밴드
+시 대역,C band,,C 밴드
+기저대역 대역폭,baseband bandwidth,,
+대역폭,BandWidth,BW,주파수 대역폭
+인체 영역 통신망,Body Area Network,BAN,"무선 인체 통신망, Wireless Body Area Network(WBAN), 인체 센서 통신망, Body Sensor Network(BSN), 의료용 인체 통신망, Medical Body Area Network(MBAN), 신체 영역 통신"
+개방형 링크드 데이터,Linked Open Data,LOD,링크드 오픈 데이터
+제로 에너지 건축물,Zero-Energy Building,ZEB,"제로 에미션 빌딩(zero emissions building), net-zero energy building, zero-carbon building"
+지능,intelligence,,인텔리전스
+보안 정보와 이벤트 관리,Security Information & Event Management,SIEM,
+클라우드 접근 보안 중개 서비스,Cloud Access Security Broker,CASB,
+다용도 비디오 부호화,Versatile Video Coding,VVC,"범용 비디오 부호화, 미래 비디오 부호화, Future Video Coding"
+802.11ax 무선랜 표준,IEEE 802.11ax,,"802.11HE(High Efficiency), 와이파이 6(Wi-Fi 6), 고효율 무선랜 표준"
+802.11ay 무선랜 표준,IEEE 802.11ay,,
+고고도 핵 전자파 펄스,High-Altitude EMP,HEMP,고고도 전자파 펄스
+핵 전자파 펄스,Nuclear Electromagnetic Pulse,NEMP,
+발생 영역 핵 전자파 펄스,Source Region EMP,SREMP,
+시스템 생성 핵 전자파 펄스,System Generated Electromagnetic Pulse,SGEMP,
+부운반파 간격,Subcarrier Spacing,SCS,
+부분 대역폭,Bandwidth Part,BWP,
+이산 푸리에 변환-확산-직교 주파수 분할 다중,DFT-Spread-OFDM,DFT-S-OFDM,
+엘티이 무선랜 묶음,LTE-WLAN Aggregation,LWA,LTE-WiFi Aggregation
+직교 주파수 분할 다중 접속,Orthogonal Frequency Division Multiple Access,OFDMA,
+단일 운반 주파수 분할 다중 접속,Single Carrier Frequency Division Multiple Access,SC-FDMA,국부 이산 푸리에 변환-확산-직교 주파수 분할 다중 접속(Localized DFT-Spread-OFDMA)
+옆 방향 링크,sidelink,SL,디투디(D2D) 링크
+신기술 호환,forward compatible,,
+빔 스위핑,beam sweeping,,
+빔 관리,beam management,,
+무선 접속망 기능 분할,functional split,,
+비직교 다중 접속,Non-Orthogonal Multiple Access,NOMA,
+공용 무선 인터페이스,Common Public Radio Interface,CPRI,"공통 공공 무선 인터페이스, 공통 공공 무선 정합"
+향상된 공용 무선 인터페이스,enhanced Common Public Radio Interface,eCPRI,"패킷 기반 공용 무선 인터페이스, 진화된 공용 무선 인터페이스, 진화된 공용 무선 정합"
+이동성 관리 장비,Mobility Management Entity,MME,
+서빙 게이트웨이,Serving Gateway,S-GW,
+패킷 데이터 네트워크 게이트웨이,Packet Data Network Gateway,PDN GW(P-GW),
+접속과 이동성 관리 기능,Access and Mobility Management Function,AMF,
+세션 관리 기능,Session Management Function,SMF,
+사용자 평면 기능,User Plane Function,UPF,
+토폴로지,topology,,
+네트워크 토폴로지,network topology,,망 연결구조
+정보,information,,
+사이버 위협 인텔리전스,Cyber Threat Intelligence,CTI,
+802.11a 무선랜 표준,IEEE 802.11a,,
+802.11b 무선랜 표준,IEEE 802.11b,,
+802.11g 무선랜 표준,IEEE 802.11g,,
+802.11n 무선랜 표준,IEEE 802.11n,,"HT(High Throughput), 와이파이 4(Wi-Fi 4), 고속 무선랜 표준"
+802.11ac 무선랜 표준,IEEE 802.11ac,,"와이파이 5(Wi-Fi 5), 기가 와이파이(giga Wi-Fi), VHT(Very High Throughput), 초고속 무선랜 표준"
+802.11ad 무선랜 표준,IEEE 802.11ad,,"Wigig(Wireless Gigabit Alliance), 60 GHz Wi-Fi, 60 GHz 초고속 무선랜 표준, VHT(Very High Throughput)"
+802.11af 무선랜 표준,IEEE 802.11af,,"Super Wi-Fi, White-Fi"
+전자파 환경 영향,Electromagnetic Environmental Effects,E3,
+전자파 환경,Electromagnetic Environment,,전자기 환경
+전자파 폭탄,Electromagnetic Bomb,E-Bomb,"전자 폭탄, 전자기 폭탄"
+연속파,Continuous wave,CW,
+전자파 차폐,Electromagnetic Shielding,,"전자기 차폐, electromagnetic screening"
+서비스형 보안,Security as a Service,SECaaS,
+의도성 전자파 장해,Intentional Electromagnetic Interference,IEMI,
+서비스형 블록체인,Blockchain as a Service,BaaS,
+암호화폐거래소,cryptocurrency exchange,,
+암호화폐지갑,cryptocurrency wallet,,
+암호화폐공개,Initial Coin Offering,ICO,"가상통화공개, 가상화폐공개"
+위임지분증명,Delegated Proof of Stake,DPoS,
+지분증명,Proof of Stake,PoS,
+전용 블록체인,private blockchain,,
+개방형 블록체인,public blockchain,,
+비허가형 블록체인,permissionless blockchain,,
+허가형 블록체인,permissioned blockchain,,
+거래 수수료,transaction fee,,
+합의 알고리즘,consensus algorithm,,
+채굴,mining,,
+이중 지급,double spending,,
+분산 응용,Decentralized Application,DApp,디앱
+분산원장 오라클 서비스,Distributed Ledger Technology(DLT) oracle service,,DLT 오라클 서비스
+머클 트리,merkle tree,,"해시트리, 이진트리, 이진 해시트리"
+생성적 대립 신경망,Generative Adversarial Network,GAN,생성적 적대 신경망
+지능형 에이전트,intelligent agent,,
+생물정보학,bioinformatics,,
+동적 언어,dynamic language,,"동적 타입 언어, 동적 프로그래밍 언어"
+정적 언어,static language,,"정적 타입 언어, 정적 프로그래밍 언어"
+5세대 이동통신 시스템,5th Generation System,5GS,5G 시스템
+5세대 이동통신 핵심망,5th Generation Core Network,5GC,"5G 코어네트워크, 5G 코어망"
+노드,node,,"마디, 교점"
+포크,fork,,"분기, 갈래"
+블록,block,,
+휘도,luminance,Y,"명도, 밝기"
+아르에프(RF) 스펙트럼,Radio Frequency(RF) spectrum,,"radio spectrum, electromagnetic radiation spectrum, radio wave"
+토큰,token,,
+휴먼 증강,human augmentation,,human enhancement
+블록체인,blockchain,,
+스마트 계약,smart contract,,스마트 콘트랙트
+분산원장기술,Distributed Ledger Technology,DLT,
+와이유브이,YUV,,"YIQ, YCbCr"
+뇌-컴퓨터 인터페이스,Brain-Computer Interface,BCI,Brain-Machine Interface(BMI)
+컴퓨터 시각,Computer Vision,CV,
+가상화폐,virtual currency,,virtual money
+암호화폐,cryptocurrency,,
+디지털 화폐,digital currency,,
+철도통신 엘티이,Long Term Evolution for Railway,"LTE-R, LTE-Railway",LTE 기반 철도통신
+철도통합무선망,Long Term Evolution based Railway wireless communication system,"LTE-R System, LTE-Railway System",LTE 기반 철도통합무선망
+해상통신 엘티이,Long Term Evolution for Maritime,LTE-Maritime,초고속해상무선통신
+비핵 전자파 펄스,Non-Nuclear Electromagnetic Pulse,NNEMP,
+낙뢰 전자파 펄스,Lightning Electromagnetic Pulse,LEMP,
+전자파 차폐 효과,electromagnetic shielding effectiveness,,전자파 차단 효과(electromagnetic screening effectiveness)
+차단 주파수 이하 도파관,Waveguide Below Cutoff,WBC,
+클라우드 기반 하드웨어 보안 모듈,cloud based Hardware Security Module,cloud HSM,HSM as s Service(HAAS)
+참난수,true random number,,완전 난수
+전자 여권,electronic passport,e-passport,"생체 여권, biometric passport, bio-passport"
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,

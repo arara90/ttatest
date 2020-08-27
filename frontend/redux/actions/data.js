@@ -16,7 +16,7 @@ export const getDatas = () => (dispatch) => {
           if (index == 0) title = cell;
           keyword.push(cell);
         } else {
-          res.push({ title: title, keywords: keyword, content: cell });
+          res.push({ title: title, keywords: keyword, content: cell});
         }
       }); //fin row.forEach
     }); //fin csv.forEach

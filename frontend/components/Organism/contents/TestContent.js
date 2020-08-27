@@ -73,6 +73,11 @@ function Test(props) {
     setChangeCount(prev=>prev+1) //버튼 색깔 변경을 위한 re-render 유도 
   };
 
+  const transformContent = (question) => {
+    var content = question.content
+    return (content.split(".")[0] + ". "+ content.split(".")[1] + ".").replace(question.title, "[ ? ]")
+  }
+
   const renderOptions = () => {
     var currOptions = options[currQuestion];
 
@@ -94,7 +99,7 @@ function Test(props) {
   return (
     <Wrap>
       <Section className="test-question" >
-          <StyledCard>{datas[questions[currQuestion]].content}</StyledCard>
+          <StyledCard>{transformContent(datas[questions[currQuestion]])}</StyledCard>
       </Section>
       <Section className="test-options">
         <Ol>{renderOptions()}</Ol>
