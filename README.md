@@ -28,6 +28,10 @@ URL : [http://ttatest.ga/](http://ttatest.ga/)
 
 ![review](https://github.com/arara90/images/blob/master/ttatest/tta04.png?raw=true)
 
+![review2](https://github.com/arara90/images/blob/master/ttatest/tta12.png?raw=true)
+
+- Review에서는 각각의 보기(옵션)를 클릭하여 뜻을 볼 수 있다. 
+
 
 
 #### 반응형
