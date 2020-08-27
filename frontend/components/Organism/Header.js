@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 import Image from "../Atom/Image";
-// import { Link } from "react-router-dom";
 import Link from "../Atom/Link";
 
 import { TTAContext } from "../context";
@@ -27,6 +26,8 @@ const buttonCss = css`
   align-items: center;
   justify-content: center;
   background-color: transparent;
+
+  cursor: pointer;
 `;
 const StyledLink = styled(Link)`
   ${buttonCss}
